@@ -1,0 +1,6 @@
+#!/bin/bash
+
+DIR="$HOME/Projects/hyprutility"
+
+cd $DIR
+npm start

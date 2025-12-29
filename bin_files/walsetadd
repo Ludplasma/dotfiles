@@ -1,0 +1,29 @@
+#!/bin/bash
+
+CURRENT_DIRECTORY=$(pwd)
+WALL_DIR="$HOME/.config/walset/wallpapers/"
+
+# Ensure the wallpaper directory exists
+mkdir -p "$WALL_DIR"
+
+if [ -f "$CURRENT_DIRECTORY/$1" ]; then
+    if [ -n "$2" ]; then
+        DEST_NAME="$2"
+    else
+        DEST_NAME="$1"
+    fi
+
+    DEST_PATH="$WALL_DIR/$DEST_NAME"
+
+    if [ -e "$DEST_PATH" ]; then
+        notify-send "WALLPAPER EXISTS" "A file named '$DEST_NAME' already exists. Aborting."
+        exit 1
+    fi
+
+    mv "$CURRENT_DIRECTORY/$1" "$DEST_PATH"
+    notify-send "WALLPAPER ADDED" "setting as wallpaper"
+    walset "$DEST_PATH"
+else
+    notify-send "ERROR IN ADDING WALLPAPER" "please put in a valid file"
+    exit 1
+fi

@@ -1,0 +1,39 @@
+@import '../../.cache/wal/colors-waybar.css';
+
+* {
+	font-family: JetBrainsMonoNl NF;
+	font-size: 16px;
+  }
+
+  window#waybar {
+  	background: alpha(@background, 0.8);
+  	/* background: alpha(@color1, 0.8); */
+	border: 2px;
+	border-style: solid;
+	border-color: alpha(@color1, 0.67);
+	border-radius: 5px;
+}
+
+.modules-right {
+	padding-right: 5px;
+
+	
+}
+
+.module-left {
+	padding-left: 5px;
+}
+#window {
+  padding-left: 15px;
+}
+#cpu {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+#memory {
+	padding-right: 1em;
+}
+#disk {
+	padding-right: 1em;
+}
+

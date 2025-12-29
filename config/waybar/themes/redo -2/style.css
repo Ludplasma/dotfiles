@@ -1,0 +1,268 @@
+@import '../../.cache/wal/colors-waybar.css';
+
+/*
+* 
+* Different solution so when applied on new screen 
+* values need to change a bit 
+*
+* padding = space within
+* margin = space from element to element
+*/
+
+
+/* @import "gruvbox.css"; */
+@define-color background @background;
+@define-color foreground @foreground;
+@define-color lighter @background;
+@define-color white-custom @color6;
+@define-color gentoo @color4;
+@define-color datet @color5;
+@define-color timet @color8;
+@define-color charging @color8;
+@define-color discharging @color3;
+@define-color full @color8;
+@define-color red @color4;
+@define-color pink @color3;
+@define-color purple @color6;
+@define-color deep-purple @color2;
+@define-color indigo @color1;
+@define-color blue @color5;
+@define-color light-blue @color5;
+@define-color cyan @color5;
+@define-color teal @color1;
+@define-color green @color1;
+@define-color light-green @color8;
+@define-color lime @color8;
+@define-color yellow @color8;
+@define-color amber @color8;
+@define-color orange @color8;
+@define-color deep-orange @color4;
+@define-color brown @color1;
+@define-color gray @color2;
+@define-color blue-gray @color1;
+@define-color nix-color @color6;
+
+* {
+  border: none;
+  border-radius: 8;
+  font-family: "JetbrainsMono Nerd Font";
+  font-size: 12px;
+  min-height: 15px;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#window {
+  margin-top: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  transition: none;
+  color: transparent;
+  background: transparent;
+}
+
+#workspaces {
+  margin-top: 6px;
+  margin-left: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  background: @background;
+  /* default: background: @background; */
+  transition: none;
+}
+
+#workspaces button {
+  transition: none;
+  color: @foreground;
+  /* default: color: @foreground; */
+  background: transparent;
+  border-radius: 2px;
+}
+
+#workspaces button.active {
+  color: @color8;
+}
+
+#workspaces button:hover {
+  transition: none;
+  box-shadow: inherit;
+  text-shadow: inherit;
+  color: @color8;
+  border-color: @color8;
+  /* border-color: @foreground; */
+  /* color: @foreground; */
+}
+
+#network {
+  margin-top: 6px;
+  margin-left: 8px;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  font-size: 12px;
+  transition: none;
+  color: @background;
+  background: @color4;
+  /*default: background: @color6;*/
+}
+
+#pulseaudio {
+  margin-top: 6px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  font-size: 12px;
+  transition: none;
+  color: @background;
+  background: @foreground;
+}
+
+#battery {
+  margin-top: 6px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  font-size: 12px;
+  transition: none;
+  color: @background;
+  background: @foreground;
+}
+
+#battery.critical:not(.charging) {
+  background-color: @foreground;
+  color: @background;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blink {
+  to {
+    background-color: @color8;
+    color: @foreground;
+  }
+}
+
+#backlight {
+  margin-top: 6px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  font-size: 12px;
+  transition: none;
+  color: @background;
+  background: @foreground;
+}
+
+#clock {
+  margin-top: 6px;
+  margin-left: 8px;
+  margin-right: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  font-size: 12px;
+  transition: none;
+  color: @background;
+  background: @color8;
+  /*default: background: @color6; */
+}
+
+#custom-launcher {
+  font-size: 24px;
+  margin-top: 6px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 5px;
+  border-radius: 10px;
+  transition: none;
+  color: @color8;
+  /*default: color: @color6; */
+  background: @background;
+}
+
+#custom-notification {
+  margin-top: 6px;
+  /* strange values normal is 8px 8px*/
+  /* margin-left: 0px; */ 
+  /* margin-right: 0px; */
+  padding-left: 6px;
+  padding-right: 6px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: none;
+  color: @background;
+  background: @color8;
+  /*default: background: @color6;*/
+}
+
+#custom-power {
+  margin-top: 6px;
+  margin-left: 8px;
+  margin-right: 1px;
+  padding-left: 6px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: none;
+  color: @background;
+  background: @color4;
+  /*default: background: @color6;*/
+}
+
+#tray {
+  margin-top: 6px;
+  margin-left: 8px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  background: @background;
+  /* default: background: @background; */
+  transition: none;
+}
+
+#bluetooth {
+  margin-top: 6px;
+  margin-left: 8px;
+  margin-bottom: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 12px;
+  border-radius: 10px;
+  transition: none;
+  color: @background;
+  background: @color8;
+  /*default: background: @color6;*/
+}
+
+#taskbar {
+  margin-top: 6px;
+  margin-left: 0px;
+  margin-right: 8px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  background: @background;
+  /* default: background: @background; */
+  transition: none;
+}

@@ -1,0 +1,15 @@
+services:
+  kali:
+    image: kalilinux/kali-rolling
+    container_name: kali-container
+    hostname: kali-host
+    ports:
+      - "11010:22"
+    volumes:
+      - ~/data/kaliLinux:/root/data  # Mount a local 'data' directory to /root/data in the container
+    environment:
+      - TZ=Europe/London # Example: Set timezone
+    command: /bin/bash # Example: Start with a bash shell
+    stdin_open: true # Keep stdin open even if not attached
+    tty: true # Allocate a pseudo-TTY
+    restart: unless-stopped # Restart the container unless it's explicitly stopped

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Define wallpaper options and their corresponding filenames in an associative array
+FASTFETCH_DIR="$HOME/.config/fastfetch/"
+
+declare -A IMAGES
+while IFS= read -r file; do
+  if [[ -f "$file" ]]; then
+    filename=$(basename "$file")
+    # Convert filename to readable name by:
+    # 1. Remove extension
+    # 2. Replace hyphens/underscores with spaces
+    # 3. Convert to lowercase
+    readable_name=$(echo "$filename" | sed 's/\.[^.]*$//' | sed 's/[-_]/ /g' | tr '[:upper:]' '[:lower:]')
+    IMAGES["$readable_name"]="$filename"
+  fi
+done < <(find "${FASTFETCH_DIR}images/" -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.jpeg" \))
+
+# Display wallpaper selection menu
+CHOSEN=$(printf "%s\n" "${!IMAGES[@]}" | rofi -dmenu -p "Image:")
+
+rm "${FASTFETCH_DIR}image.jpg"
+rm -rf ~/.cache/fastfetch/images
+cp "${FASTFETCH_DIR}images/${IMAGES[$CHOSEN]}" "${FASTFETCH_DIR}/image.jpg"

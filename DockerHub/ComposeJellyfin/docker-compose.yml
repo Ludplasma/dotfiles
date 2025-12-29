@@ -1,0 +1,14 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    restart: unless-stopped
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    volumes:
+      - ~/data/jellyfin/config:/config
+      - ~/data/jellyfin/cache:/cache
+      - ~/server/jellyfin/media/:/media
+    network_mode: host
+    environment:
+      - TZ=Africa/Johannesburg

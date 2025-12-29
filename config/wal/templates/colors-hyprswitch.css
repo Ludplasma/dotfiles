@@ -1,0 +1,27 @@
+:root {{
+    --border-color: {color2};
+    --border-color-active: {color9};
+    --bg-color: rgba(20, 20 ,20, 0);
+    --bg-color-hover: rgba(20, 20 ,20, 0);
+    --border-radius: 20px;
+    border: 0;
+    padding: 20px;
+}}
+
+.workspace {{
+    --bg-color: {color0};
+    --bg-color-hover: {color2};
+    --border-color: {color9};
+    margin: 5px;
+    --border-size: 4px;
+}}
+
+.index {{
+    visibility: hidden;
+    --bg-color: {color4};
+    padding: 7px;
+}}
+
+.client {{
+    font-size: 16px;
+}}

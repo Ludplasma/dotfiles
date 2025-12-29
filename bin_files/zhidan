@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+
+LOCATION="$HOME/.local/share/zhidan"
+HIDDEN_LOCATION="$LOCATION/sys_diagnostic_information/logs"
+ORIGINAL_LOCATION=$(pwd)
+
+# Remove zhidan from zsh history
+sed -i '/zhidan/d' "$HOME/.zsh_history" 2>/dev/null
+
+#create diversion files for hidden files
+if [ ! -d $HIDDEN_LOCATION ]; then
+  mkdir -p $HIDDEN_LOCATION
+fi
+cd $LOCATION/sys_diagnostic_information
+if [ ! -f sys_diagnostic_information.txt ]; then
+  echo "$(head -c 100 /dev/urandom | base64)" >sys_diagnostic_information.txt
+fi
+if [ ! -f sys_diagnostic_information_log.txt ]; then
+  echo "$(head -c 100 /dev/urandom | base64)" >sys_diagnostic_information_log.txt
+fi
+if [ ! -f sys_diagnostic_information_log_error.txt ]; then
+  echo "$(head -c 100 /dev/urandom | base64)" >sys_diagnostic_information_log_error.txt
+fi
+if [ ! -f sys_diagnostic_information_log_warning.txt ]; then
+  echo "$(head -c 100 /dev/urandom | base64)" >sys_diagnostic_information_log_warning.txt
+fi
+if [ ! -f sys_diagnostic_information_log_info.txt ]; then
+  echo "$(head -c 100 /dev/urandom | base64)" >sys_diagnostic_information_log_info.txt
+fi
+if [ ! -f sys_diagnostic_information_log_debug.txt ]; then
+  echo "$(head -c 100 /dev/urandom | base64)" >sys_diagnostic_information_log_debug.txt
+fi
+if [ ! -f sys_diagnostic_information_log_trace.txt ]; then
+  echo "$(head -c 100 /dev/urandom | base64)" >sys_diagnostic_information_log_trace.txt
+fi
+if [ ! -f sys_diagnostic_information_log_fatal.txt ]; then
+  echo "$(head -c 100 /dev/urandom | base64)" >sys_diagnostic_information_log_fatal.txt
+fi
+if [ ! -f sys_diagnostic_information_log_critical.txt ]; then
+  echo "$(head -c 100 /dev/urandom | base64)" >sys_diagnostic_information_log_critical.txt
+fi
+if [ ! -f sys_diagnostic_temporary_information.txt ]; then
+  echo "$(head -c 100 /dev/urandom | base64)" >sys_diagnostic_temporary_information.txt
+fi
+if [ ! -f sys_diagnostic_temporary_information_log.txt ]; then
+  echo "$(head -c 100 /dev/urandom | base64)" >sys_diagnostic_temporary_information_log.txt
+fi
+if [ ! -f sys_diagnostic_fixed_information.txt ]; then
+  echo "$(head -c 100 /dev/urandom | base64)" >sys_diagnostic_fixed_information.txt
+fi
+if [ ! -f sys_diagnostic_fixed_information_log.txt ]; then
+  echo "$(head -c 100 /dev/urandom | base64)" >sys_diagnostic_fixed_information_log.txt
+fi
+if [ ! -f sys_diagnostic_fixed_information_log_error.txt ]; then
+  echo "$(head -c 100 /dev/urandom | base64)" >sys_diagnostic_fixed_information_log_error.txt
+fi
+if [ ! -f sys_diagnostic_fixed_information_log_warning.txt ]; then
+  echo "$(head -c 100 /dev/urandom | base64)" >sys_diagnostic_fixed_information_log_warning.txt
+fi
+
+#add useless folder and files
+if [ ! -f "$LOCATION/sys_diagnostic_information/temp" ]; then
+  mkdir -p "$LOCATION/sys_diagnostic_information/temp"
+  echo "$(head -c 100 /dev/urandom | base64)" >"$LOCATION/sys_diagnostic_information/temp/temp.txt"
+  echo "$(head -c 100 /dev/urandom | base64)" >"$LOCATION/sys_diagnostic_information/temp/temp_log.txt"
+  echo "$(head -c 100 /dev/urandom | base64)" >"$LOCATION/sys_diagnostic_information/temp/temp_log_error.txt"
+  echo "$(head -c 100 /dev/urandom | base64)" >"$LOCATION/sys_diagnostic_information/temp/temp_log_warning.txt"
+  echo "$(head -c 100 /dev/urandom | base64)" >"$LOCATION/sys_diagnostic_information/temp/temp_log_info.txt"
+fi
+
+#the path that the user thinks the files is in
+HIDDEN_PATH=$(echo "$1" | tr -cd '[:alnum:]/_-' | sed 's/./&\//g')
+
+if [ ! -d "$HIDDEN_LOCATION/$HIDDEN_PATH" ]; then
+  mkdir -p "$HIDDEN_LOCATION/$HIDDEN_PATH"
+fi
+
+# Copy files if provided as arguments
+if [ $# -gt 1 ]; then
+  shift # Skip the first argument (path)
+  for file in "$@"; do
+    if [ "$file" = "n" ]; then
+      nautilus "$HIDDEN_LOCATION/$HIDDEN_PATH" &
+    elif [ "$file" = "e" ]; then
+      nvim "$HIDDEN_LOCATION/$HIDDEN_PATH"
+    elif [ "$file" = "m" ]; then
+      mkdir -p "$HIDDEN_LOCATION/$HIDDEN_PATH/Music"
+      vlc "$HIDDEN_LOCATION/$HIDDEN_PATH/Music"/* &
+    elif [ -f "$ORIGINAL_LOCATION/$file" ]; then
+      read -p "Enter 'm' for Music directory or 'n' for regular directory: " choice
+      if [ "$choice" = "m" ]; then
+        mkdir -p "$HIDDEN_LOCATION/$HIDDEN_PATH/Music"
+        mv "$ORIGINAL_LOCATION/$file" "$HIDDEN_LOCATION/$HIDDEN_PATH/Music/$file"
+      else
+        mv "$ORIGINAL_LOCATION/$file" "$HIDDEN_LOCATION/$HIDDEN_PATH/$file"
+      fi
+    elif [ -d "$ORIGINAL_LOCATION/$file" ]; then
+      mv "$ORIGINAL_LOCATION/$file" "$HIDDEN_LOCATION/$HIDDEN_PATH/$file"
+    fi
+  done
+fi

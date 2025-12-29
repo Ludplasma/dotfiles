@@ -1,0 +1,63 @@
+@import '../../.cache/wal/colors-waybar.css';
+
+* {
+    border: none;
+    font-family: "Fira Code", "Iosevka Nerd Font";
+    font-size: 14px;
+    min-height: 0;
+}
+
+#waybar-bottom {
+    background: linear-gradient(90deg, @color0 0%, @color8 100%);
+    color: @foreground;
+    border-radius: 10px 10px 0 0;
+    margin: 0 10px;
+}
+
+#custom-hello {
+    color: @color4;
+    padding: 0 15px;
+    margin: 2px 0;
+}
+
+#tray {
+    padding: 0 12px;
+    margin: 0 4px;
+
+    /* border-left: 1px solid @color2; */
+}
+
+#clock {
+    font-weight: bold;
+    color: @color2;
+}
+
+#battery {
+    color: @color3;
+    padding-right: 15px;
+}
+
+#workspaces button {
+    color: @color8; /* Workspace text color */
+}
+
+#workspaces button.active {
+    color: @foreground;
+    border-radius: 7px;
+}
+
+#workspaces button.focused {
+    background: @color5; /* Focused workspace background */
+    color: @background; /* Focused workspace text */
+    border-radius: 12px;
+}
+
+#workspaces button.urgent {
+    background: @color1; /* Urgent workspace background */
+    color: @background; /* Urgent workspace text */
+    border-radius: 12px;
+}
+
+#network {
+    color: @color4;
+}

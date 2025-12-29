@@ -1,0 +1,2 @@
+#!/bin/bash
+hyprswitch init --custom-css ~/.config/hyprswitch/style.css --workspaces-per-row 4 &

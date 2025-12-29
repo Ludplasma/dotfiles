@@ -1,0 +1,4 @@
+#!/bin/bash
+
+notify-send "fetching video data. please wait..."
+python /bin/ytdlp-mpv -i "$(wl-paste)" -t off -c 8046

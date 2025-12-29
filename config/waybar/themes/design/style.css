@@ -1,0 +1,179 @@
+@import '../../.cache/wal/colors-waybar.css';
+
+* {
+  /* border: none; */
+  border-radius: 12px;
+  font-family: "Iosevka Nerd Font", "Font Awesome 5 Free";
+  font-weight: 600;
+  font-size: 14px;
+  min-height: 0;
+}
+
+#waybar {
+  background-color: alpha(@background, 0.8);
+  color: @color8;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  border-top: 3px transparent;
+  border-radius: 3px;
+
+}
+
+#window {
+  color: @color8;
+}
+
+window#waybar .horizontal{
+  padding: 3px;
+}
+window#waybar {
+  border-radius: 10px;
+  border: 2px solid @color5;
+}
+
+window#waybar {
+  background: none;
+
+}
+
+/* Left Modules */
+#workspaces {
+  background: alpha(@color1, 0.8); /* Semi-transparent gray background */
+  padding: 0 12px;
+  margin: 0 4px;
+  border-radius: 0px;
+}
+
+#workspaces button {
+  padding: 0 10px;
+  background: transparent;
+  color: @color8; /* Workspace text color */
+}
+#workspaces button.active {
+  color: @foreground;
+  border-radius: 7px;
+}
+
+#workspaces button.focused {
+  background: @color5; /* Focused workspace background */
+  color: @background; /* Focused workspace text */
+  border-radius: 12px;
+}
+
+#workspaces button.urgent {
+  background: @color8; /* Urgent workspace background */
+  color: @background; /* Urgent workspace text */
+  border-radius: 12px;
+}
+
+#custom-sep {
+  color: @color1; /* Separator color */
+  padding: 0 8px;
+}
+
+/* Center Modules */
+#clock {
+  background: alpha(@color1, 0.8); /* Semi-transparent blue background */
+  color: @foreground; /* Clock text color */
+  padding: 0 12px;
+  margin: 0 4px;
+  border-radius: 0px;
+}
+
+/* Right Modules */
+#battery {
+  background: alpha(@color8, 0.8); /* Semi-transparent green background */
+  color: @background; /* Battery text color */
+  padding: 0 12px;
+  margin: 0 4px;
+  border-radius: 0px;
+}
+
+#battery.charging {
+  background: alpha(@color8, 0.8); /* Charging battery background */
+}
+
+#battery.warning:not(.charging) {
+  background: alpha(@foreground, 0.8); /* Warning battery background */
+}
+
+#battery.critical:not(.charging) {
+  background: alpha(@color8, 0.8); /* Critical battery background */
+}
+
+#network {
+  background: alpha(@color6, 0.8); /* Semi-transparent cyan background */
+  color: @background; /* Network text color */
+  padding: 0 12px;
+  margin: 0 4px;
+  border-radius: 0px;
+}
+
+#network.disconnected {
+  background: alpha(@color8, 0.8); /* Disconnected network background */
+}
+
+#pulseaudio {
+  background: alpha(@color8, 0.8); /* Semi-transparent purple background */
+  color: @background; /* Audio text color */
+  padding: 0 12px;
+  margin: 0 4px;
+  border-radius: 0px;
+}
+
+#pulseaudio.muted {
+  background: alpha(@color8, 0.8); /* Muted audio background */
+}
+
+#cpu {
+  background: alpha(@color3, 0.8);
+  color: @background;
+  padding: 0 12px;
+  border-radius: 0px;
+}
+
+#memory {
+  background: alpha(@color8, 0.8);
+  color: @background;
+  padding: 0 12px;
+  border-radius: 0px;
+}
+
+#custom-updates {
+  background: alpha(@foreground, 0.8);
+  color: @background;
+  padding: 0 12px;
+  border-radius: 0px;
+}
+
+
+#tray {
+  background: alpha(@color1, 0.8); /* Semi-transparent gray background */
+  padding: 0 12px;
+  margin: 0 4px;
+  border-radius: 0px;
+}
+
+/* #custom-updates { */
+/*   background-color: transparent; */
+/*   color: @color4; */
+/*   border-radius: 0px; */
+/*   margin-right: 5px; */
+/*   border-right: 0px; */
+/*   border-bottom: 3px; */
+/*   border-style: solid; */
+/*   border-color: alpha(@color1, 0.8); */
+/*   transition: 0.3s; */
+/* } */
+
+#custom-weather {
+  background-color: transparent;
+  color: @foreground;
+  border-radius: 0px;
+  margin-right: 0px;
+  border-right: 0px;
+  border-bottom: 3px;
+  border-style: solid;
+  border-color: alpha(@color1, 0.8);
+  transition: 0.3s;
+}

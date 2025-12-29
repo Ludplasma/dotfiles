@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Define wallpaper options and their corresponding filenames in an associative array
+WALL_DIR="$HOME/.config/walset/wallpapers/"
+
+declare -A WALLPAPERS
+while IFS= read -r file; do
+    if [[ -f "$file" ]]; then
+        filename=$(basename "$file")
+        # Convert filename to readable name by:
+        # 1. Remove extension
+        # 2. Replace hyphens/underscores with spaces
+        # 3. Convert to lowercase
+        readable_name=$(echo "$filename" | sed 's/\.[^.]*$//' | sed 's/[-_]/ /g' | tr '[:upper:]' '[:lower:]')
+        WALLPAPERS["$readable_name"]="$filename"
+    fi
+done < <(find "$WALL_DIR" -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.jpeg" \))
+
+# Display wallpaper selection menu
+CHOSEN=$(printf "%s\n" "${!WALLPAPERS[@]}" | rofi -dmenu -p "Wallpaper:")
+
+# Set wallpaper and system colors
+if [[ -n "${WALLPAPERS[$CHOSEN]}" ]]; then
+    walset "$WALL_DIR${WALLPAPERS[$CHOSEN]}"
+else
+    exit 1
+fi

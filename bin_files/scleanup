@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "=== Arch Linux Safe Cleanup Script ==="
+echo
+
+# Require sudo once
+if [[ $EUID -ne 0 ]]; then
+  echo "Requesting sudo..."
+  sudo -v
+fi
+
+echo "▶ Cleaning pacman cache (safe mode)"
+sudo pacman -Sc --noconfirm || true
+echo
+
+echo "▶ Cleaning systemd journal logs"
+sudo journalctl --vacuum-time=7d
+sudo journalctl --vacuum-size=200M
+echo
+
+echo "▶ Cleaning /var/tmp"
+sudo rm -rf /var/tmp/*
+echo
+
+echo "▶ Cleaning user cache (~/.cache)"
+rm -rf ~/.cache/*
+echo
+
+echo "▶ Cleaning Flatpak unused data (if installed)"
+if command -v flatpak &>/dev/null; then
+  flatpak uninstall --unused -y || true
+else
+  echo "Flatpak not installed."
+fi
+echo
+
+echo "▶ Cleaning AUR helper cache (if present)"
+if command -v paru &>/dev/null; then
+  paru -Sc --noconfirm || true
+elif command -v yay &>/dev/null; then
+  yay -Sc --noconfirm || true
+else
+  echo "No AUR helper detected."
+fi
+echo
+
+echo "▶ Removing orphaned packages (if any)"
+orphans=$(pacman -Qtdq || true)
+if [[ -n "$orphans" ]]; then
+  sudo pacman -Rns $orphans --noconfirm
+else
+  echo "No orphaned packages found."
+fi
+echo
+
+echo "=== Disk usage after cleanup ==="
+df -h
+echo
+
+echo "=== Large files (>2G) — REVIEW ONLY ==="
+sudo find / -xdev -type f -size +2G 2>/dev/null
+echo
+
+echo "=== Cleanup complete ==="

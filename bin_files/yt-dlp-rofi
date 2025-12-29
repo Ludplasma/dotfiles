@@ -1,0 +1,99 @@
+#!/bin/bash
+
+# Creates the directories for the download and the cache
+mkdir -p $HOME/Downloads/yt-dlp
+mkdir -p $HOME/.cache/yt-dlp
+cd $HOME/.cache/yt-dlp
+
+# gets the placeholder files
+placeholder_files=(*.placeholder)
+if [ "${placeholder_files[0]}" = "*.placeholder" ]; then
+    placeholder_display=()
+else
+    placeholder_display=("${placeholder_files[@]%.placeholder}")
+fi
+
+# Prompt user to input a video URL using rofi
+CHOSEN=$(printf '%s\n' "${placeholder_display[@]}" | rofi -dmenu -p "download link: ")
+
+# If the user cancels the selection, exit the script
+[ -z "$CHOSEN" ] && exit 1
+
+if [ -e "$CHOSEN.placeholder" ]; then 
+    rm -f "$CHOSEN.placeholder"
+    exit 1
+else 
+    notify-send "initiating Download" "Please wait..."
+fi
+TITLE=$(yt-dlp --get-title "$CHOSEN")
+
+# checks if the  url is valid
+if [ ! $TITLE &>/dev/null] ; then
+    notify-send "Invalid URL" "Please provide a valid video URL"
+    exit 1
+fi
+
+FILENAME=$(yt-dlp --get-filename "$CHOSEN")
+touch "$FILENAME.placeholder"
+notify-send "Downloading" "$TITLE"
+
+# checks to see if the download should be aborted by the absence of the placeholder file
+DOWNLOADED=0
+check_download_state() {
+    while [ -e "$FILENAME.placeholder" ]; do
+        sleep 1
+    done
+    
+    if [ $DOWNLOADED -eq 1];then
+        exit 0
+    else  
+        notify-send "Download aborted" "$TITLE"
+    fi  
+    
+    #deletes the placeholder file and the part file
+    rm -f "$FILENAME.part"
+    rm -f "$FILENAME"
+    pkill -f "yt-dlp $CHOSEN"
+    exit 0
+}
+check_download_state &
+#downloads the video and notifies the user when the download is complete
+download_video() {
+    local retries=${1:-0}
+    
+    # Checks if the downloaded file already exists in the cache
+    if [ -f "$FILENAME" ]; then
+        rm -f "$FILENAME"
+    fi
+    
+    # Checks if the downloaded file already exists in the downloads folder
+    if [ -f "$HOME/Downloads/yt-dlp/$FILENAME" ]; then
+        notify-send "File exists" "$TITLE is already downloaded"
+        rm -f "$FILENAME.placeholder"
+        return
+    fi 
+
+    # Downloads the video
+    if yt-dlp "$CHOSEN"; then
+        notify-send "Download Complete" "$TITLE"
+        DOWNLOADED=1
+        mv "$FILENAME" "$HOME/Downloads/yt-dlp/$FILENAME"
+    else
+        if [ -e "$FILENAME.placeholder" ]; then
+            notify-send "retrying download" "$TITLE"
+        fi
+        rm -f "$FILENAME"
+        # retries if the download failed 3 times
+        if [ $retries -lt 3 && -e "$FILENAME.placeholder"]; then
+            download_video $((retries + 1))
+        else
+            if [ -e "$FILENAME.placeholder" ]; then
+                notify-send "Download Failed" "$TITLE"
+            else 
+                notify-send "Download aborted" "$TITLE"
+            fi
+        fi
+    fi
+    rm -f "$FILENAME.placeholder"
+}
+download_video

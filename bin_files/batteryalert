@@ -1,0 +1,15 @@
+#!/bin/bash
+
+THRESHOLD=15
+while true; do
+    STATE=$( upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "state:" | cut -b 26- )
+    CURRENT_PERCENTAGE=$(upower -i $(upower -e | grep 'BAT')  | awk '/percentage/ {print $2}'  | tr -d '%')
+    if [ $CURRENT_PERCENTAGE -le $THRESHOLD ]; then
+        if [ $STATE == "discharging" ]; then
+            notify-send "URGENT: Battery is low! Battery is at $CURRENT_PERCENTAGE%" "plug in PC"
+            sleep 120
+        fi
+    else 
+        sleep 60
+    fi
+done

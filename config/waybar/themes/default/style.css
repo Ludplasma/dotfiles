@@ -1,0 +1,237 @@
+@import '../../.cache/wal/colors-waybar.css';
+
+@define-color bg            alpha(@color0, 0.85);
+@define-color fg            @color7;
+@define-color muted         @color8;
+@define-color border        @color0;
+@define-color border-strong @color15;
+@define-color accent-blue   @color4;
+@define-color accent-green  @color2;
+@define-color accent-yellow @color3;
+@define-color accent-orange @color11;
+@define-color accent-pink   @color9;
+@define-color accent-purple @color5;
+@define-color accent-cyan   @color14;
+
+* {
+  border: none;
+  border-radius: 0px;
+  font-family: "Iosevka Nerd Font";
+  font-weight: 600;
+  font-size: 14px;
+  min-height: 0;
+  opacity: 1;
+  color: @fg;
+}
+
+window#waybar {
+  background: none;
+}
+
+tooltip {
+  background: @bg;
+  border-radius: 7px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: @border;
+  opacity: 1;
+}
+
+#workspaces button {
+  padding: 5px;
+  color: @muted;
+  margin-right: 5px;
+}
+
+#workspaces button.active {
+  color: @accent-blue;
+  border-radius: 7px;
+  border-bottom: 3px solid @border-strong;
+  transition: 0.3s;
+}
+
+#workspaces button.focused {
+  color: @fg;
+  background: alpha(@accent-pink, 0.6);
+  border-radius: 7px;
+}
+
+#workspaces button.urgent {
+  color: @border;
+  background: alpha(@accent-pink, 0.8);
+  border-radius: 7px;
+  opacity: 0.5;
+}
+
+#workspaces button:hover {
+  background: alpha(@border, 0.8);
+  color: @fg;
+  border-radius: 17px;
+}
+
+#window,
+#clock,
+#battery,
+#mpris,
+#pulseaudio,
+#custom-pacman,
+#network,
+#bluetooth,
+#temperature,
+#workspaces,
+#tray,
+#mpd,
+#custom-pomodoro,
+#cpu,
+#memory,
+#backlight,
+#custom-spotify,
+#custom-updates,
+#custom-weather,
+#modbackground {
+  opacity: 1;
+  padding: 0px 7px;
+  margin-top: 5px;
+  background: @bg;
+}
+
+#backlight {
+  border-radius: 7px 0px 0px 7px;
+  background: @bg;
+  opacity: 1;
+  padding: 0px 7px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+#pulseaudio {
+  color: @accent-blue;
+  border-radius: 7px 0px 0px 7px;
+  border-bottom: 3px solid @border-strong;
+  transition: 0.3s;
+}
+
+#pulseaudio.microphone {
+  color: @accent-purple;
+  border-radius: 0px 7px 7px 0px;
+  margin-right: 5px;
+  border-bottom: 3px solid @border-strong;
+  transition: 0.3s;
+}
+
+#cpu {
+  color: @accent-cyan;
+  border-radius: 7px 0px 0px 7px;
+  border-bottom: 3px solid @border-strong;
+  transition: 0.3s;
+}
+
+#memory {
+  color: @accent-cyan;
+  border-radius: 0px 7px 7px 0px;
+  margin-right: 5px;
+  border-bottom: 3px solid @border-strong;
+  transition: 0.3s;
+}
+
+#tray {
+  border-radius: 7px;
+  margin-right: 5px;
+  background: @bg;
+}
+
+#workspaces {
+  background: @bg;
+  background-color: transparent;
+  border-radius: 7px;
+  margin-left: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  opacity: 1;
+}
+
+#window {
+  border-radius: 7px;
+  margin-left: 10px;
+  margin-right: 60px;
+  opacity: 1;
+}
+
+#clock {
+  color: @accent-orange;
+  border-radius: 7px;
+  margin-right: 5px;
+  padding-right: 0px;
+  border-right: 0px;
+  opacity: 1;
+  border-bottom: 3px solid @border-strong;
+  transition: 0.3s;
+}
+
+#network {
+  color: @accent-yellow;
+  border-radius: 7px;
+  margin-right: 5px;
+  border-left: 0px;
+  border-right: 0px;
+  opacity: 1;
+}
+
+#bluetooth {
+  color: @accent-blue;
+  border-radius: 7px;
+  margin-right: 5px;
+  opacity: 1;
+}
+
+#battery {
+  color: @accent-green;
+  border-radius: 7px;
+  margin-right: 5px;
+  border-left: 0px;
+  border-bottom: 3px solid @border-strong;
+  transition: 0.3s;
+}
+
+#custom-spotify {
+  border-radius: 7px;
+  margin-right: 5px;
+  border-right: 0px;
+  opacity: 1;
+}
+
+#mpris {
+  border-radius: 7px;
+  margin-right: 5px;
+  border-right: 0px;
+}
+
+#mpris.paused {
+  border-bottom: 2px solid @accent-yellow;
+}
+
+#mpd {
+  border-radius: 7px;
+  margin-right: 5px;
+  border-right: 0px;
+}
+
+#custom-updates {
+  background-color: transparent;
+  color: @accent-orange;
+  border-radius: 7px;
+  margin-right: 5px;
+  border-right: 0px;
+  border-bottom: 3px solid @border-strong;
+  transition: 0.3s;
+}
+
+#custom-weather {
+  background-color: transparent;
+  color: @accent-yellow;
+  border-radius: 7px;
+  margin-right: 5px;
+  border-right: 0px;
+  border-bottom: 3px solid @border-strong;
+  transition: 0.3s;
+}

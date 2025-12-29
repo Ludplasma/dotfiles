@@ -1,0 +1,94 @@
+@import '../../.cache/wal/colors-waybar.css';
+
+/* style.css */
+* {
+    font-family: "JetBrains Mono", "Font Awesome 6 Free"; /* Choose your fonts */
+    font-size: 14px;
+    color: @foreground; /* Light text color */
+}
+
+window#waybar {
+    background-color: alpha(@background, 0.8); /* Semi-transparent dark background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 5px;
+    margin: 5px;
+}
+
+#waybar > * {
+    padding: 0px 10px; /* Spacing between modules */
+    margin-top: 5px;
+}
+
+#waybar > module {
+    margin: 0px 5px; /* Margin around modules */
+}
+
+
+#clock {
+    color: @color5; /* Teal color for clock */
+    padding: 0px 7px;
+}
+
+#pulseaudio {
+    color: @color8; /* Yellow for volume */
+    padding: 0px 7px;
+}
+
+#network {
+    color: @color6;  /* Blue for network */
+    padding: 0px 7px;
+}
+
+#battery {
+    color: @color8; /* Light green for battery */
+    padding: 0px 7px;
+}
+
+#temperature {
+    color: @color4; /* Red for temperature */
+    padding: 0px 7px;
+}
+
+#cpu {
+    color: @color8; /* Orange for CPU */
+    padding: 0px 7px;
+}
+
+#memory {
+    color: @color3; /* Purple for memory */
+    padding: 0px 7px;
+}
+
+#tray {
+    background-color: alpha(@background, 0); /* Transparent tray background */
+    padding: 0px 7px;
+}
+
+/* Example of styling a specific module */
+#window {
+    color: @color8; /* Example orange color */
+}
+
+#workspaces {
+
+}
+
+#workspaces button {
+    padding: 0px 5px;
+    margin: 0px 2px;
+    border: none;
+    background-color: transparent;
+    color: @foreground;
+}
+
+#workspaces button.active {
+    color: @color1; /* Green for active workspace */
+}
+
+#workspaces button.urgent {
+    color: @color4; /* Red for urgent workspace */
+}
+
+#mode {
+    color: @color4; /* Pink for mode */
+}

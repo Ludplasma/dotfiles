@@ -1,0 +1,21 @@
+#!/bin/bash
+
+BASE_DIR="$HOME/.dotfiles/config/rofi/launchers/styles"
+
+# Pick directory
+dir=$(find "$BASE_DIR" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' |
+  rofi -dmenu -p "Pick style directory")
+
+[ -z "$dir" ] && exit 1
+
+# Pick file (without .rasi extension)
+file=$(find "$BASE_DIR/$dir" -type f -name '*.rasi' -printf '%f\n' |
+  sed 's/\.rasi$//' |
+  rofi -dmenu -p "Pick style")
+
+[ -z "$file" ] && exit 1
+
+# Full path if you need it later
+selected="$BASE_DIR/$dir/$file.rasi"
+
+ln -sf ${selected} "$HOME/.config/rofi/config.rasi"

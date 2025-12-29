@@ -1,0 +1,22 @@
+#!/bin/bash
+mkdir -p ~/.config/walset/wallcurrent
+rm ~/.config/walset/wallcurrent/wallpaper.jpg
+cp $1 ~/.config/walset/wallcurrent/wallpaper.jpg
+rm -r ~/.cache/wal/schemes
+mkdir ~/.cache/wal/schemes
+swww img ~/.config/walset/wallcurrent/wallpaper.jpg --transition-type wipe
+wal -a 92 -i ~/.config/walset/wallcurrent/wallpaper.jpg
+
+#m move new themes to their config folders
+rm ~/.config/hyprswitch/style.css
+cp ~/.cache/wal/colors-hyprswitch.css ~/.config/hyprswitch/style.css
+
+rm ~/.config/Vencord/themes/pywal-theme.css
+cp ~/.cache/wal/colors-discord.css ~/.config/Vencord/themes/pywal-theme.css
+
+rm ~/.config/cava/config
+cp ~/.cache/wal/cava-config ~/.config/cava/config
+
+
+#reload apps that does not auto update themes
+resetHyprland

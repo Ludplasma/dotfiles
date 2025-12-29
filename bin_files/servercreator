@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cp -r ~/.config/servercreator/server server
+sudo chmod +x ./server/start

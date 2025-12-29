@@ -1,0 +1,15 @@
+#!/bin/bash
+pkill waybar
+hyprctl dispatch exec waybar
+
+pkill swaync
+hyprctl dispatch exec swaync
+
+pkill hyprswitch
+hyprctl dispatch exec hyprswitchINIT
+
+pkill batteryalert
+hyprctl dispatch exec batteryalertL
+
+systemctl --user restart pipewire.servie
+hyprctl reload

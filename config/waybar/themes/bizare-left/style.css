@@ -1,0 +1,254 @@
+* {
+    border: none;
+    border-radius: 0px;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 12px;
+}
+
+@import '../../.cache/wal/colors-waybar.css';
+
+/* Map pywal colors to your scheme */
+@define-color bg @color0;       /* background */
+@define-color container @color1; /* main container/panel background */
+@define-color fg @color7;       /* default foreground */
+@define-color fg-1 @color15;    /* bright foreground */
+
+@define-color arch @color4;     /* blue (mapped to purple) */
+@define-color memory @color4;  /* green */
+@define-color cpu @color10;  /* green */
+@define-color themes @color12; /* yellow */
+@define-color weather @color11; /* orange */
+
+@define-color workspace @color2; /* selection background (darker) */
+@define-color workspace-active @color13; /* cyan */
+
+@define-color slider @color8;   /* lighter background */
+@define-color slider-highlight @color12; /* yellow */
+@define-color calendar @color10; /* green */
+@define-color clock @color11;  /* orange */
+@define-color power @color8;    /* red (mapped to lighter background) */
+
+@define-color logout @color12;  /* yellow */
+@define-color reboot @color9;   /* red */
+
+window#waybar {
+    background-color: transparent;
+}
+window#waybar > box {
+    min-height: 1000px;
+    border-radius: 8px; 
+    border: 0.5px solid @bg; 
+    margin: 0px 8px 12px 8px;
+    background-color:  @bg; 
+    box-shadow: 2px 3px 3px 1px @background; 
+}
+
+tooltip {
+    background: @bg;
+    color: @fg;
+    border-radius: 5px;
+    border: 1px solid alpha(@color2, 0.5);
+    padding: 5px 10px;
+    margin: 0;
+}
+
+
+
+/* Left-Modules */
+
+#custom-launcher {
+    font-size: 18px;
+    padding-right: 7px;
+    text-shadow: 5 2 3px alpha(@background, 1);
+    color: @arch;
+}
+
+box#launcher {
+    margin-top: 15px;
+    border-radius: 5px;
+    background-color: @bg;
+}
+
+#tray {
+
+    border-radius: 2px;
+    margin-top: 15px;
+    padding-left: 2px;
+}
+
+#cpu {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: @cpu;
+    font-size: 1.2rem;
+    text-shadow: 5 2 3px alpha(@background, 1);
+}
+
+#memory {
+    margin-top: 0px;
+    margin-bottom: 15px;
+    color: @memory;
+    text-shadow: 5 2 3px alpha(@background, 1);
+
+}
+
+#temperature {
+    margin-bottom: 10px;
+    color: @fg;
+    text-shadow: 5 2 3px alpha(@background, 1);
+}
+
+
+#custom-weather {
+    margin-top: 12px;
+    padding-right: 0px;
+    color: @weather;
+    font-weight: 800;
+    font-size: 12px;
+    text-shadow: 5 2 3px alpha(@background, 1);
+}
+
+#custom-dots {
+    color: @fg;
+    font-size: 21px;
+    font-weight: 800;
+    text-shadow: 5 2 3px alpha(@background, 1);
+}
+
+#custom-updates {
+    margin-top: 5px;
+    margin-bottom: 3px;
+    color: @updates;
+    font-size: 12px;
+    text-shadow: 5 2 3px alpha(@background, 1);
+}
+
+
+box#themes {
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-top: 5px;
+    margin-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: alpha(@container, 0.95);
+    border-radius: 5px;
+    box-shadow: 1 1 5px alpha(@background, 1);
+  }
+  
+#custom-theme-switcher {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: @themes;
+    text-shadow: 5 2 3px alpha(@background, 1);
+}
+
+
+
+/* Workspace style */
+
+#workspaces label {
+    font-size: 13px;
+    padding-right: 3px;
+}
+
+#workspaces button {
+    color: alpha(@workspace, 1);
+    border-radius: 5px;
+    animation: ws_normal 20s ease-in-out 1;
+    padding: 7px 0px
+}
+
+#workspaces button.active {
+    color: @workspace-active;
+    animation: ws_active 20s ease-in-out 1;
+    transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#workspaces button.urgent {
+    background-color: @power;
+}
+
+
+
+/* Right Modules */
+
+#pulseaudio-slider {
+    margin-top: 10px;
+}
+
+#pulseaudio-slider slider {
+    min-height: 17px;
+    min-width: 17px;
+    opacity: 0;
+    background-image: none;
+    background-color: @slider;
+    border-color: @foreground;
+    border-radius: 5px;
+    box-shadow: 1px 5px 6px 1px @background;
+}
+
+#pulseaudio-slider trough {
+    min-height: 100px;
+    min-width: 10px;
+    border-radius: 5px;
+    background-color: @background;
+}
+
+#pulseaudio-slider highlight {
+    min-width: 5px;   
+    border-radius: 5px;
+    background-image: none;
+    background-color: @slider-highlight;
+}
+
+#pulseaudio.audio {
+    font-size: 12px;
+    text-shadow: 5px 2px 3px @background;
+    color: aliceblue;
+}
+
+
+#clock.calender {
+    font-size: 11px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    font-family: "JetBrainsMono Nerd Font";
+    color: @calender;
+    text-shadow: 5px 2px 2px @background;
+}
+
+
+#clock {
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: @clock;
+    font-family: "JetBrainsMono Nerd Font";
+    text-shadow: 5px 2px 3px alpha(@background, 1);
+}
+
+#custom-power {
+    margin-bottom: 15px;
+    padding-right: 3px;
+    font-size: 18px;
+    color: @power;
+    text-shadow: 5px 2px 3px alpha(@background, 1);
+}
+
+#custom-reboot {
+    margin-top: 5px;
+    margin-bottom: 7px;
+    padding-right: 2px;
+    font-size: 18px;
+    color: @reboot ;
+    text-shadow: 5px 2px 3px alpha(@background, 1);
+}
+
+#custom-quit {
+    padding-right: 2px;
+    font-size: 17px;
+    color: @logout;
+    text-shadow: 5px 2px 3px alpha(@background, 1);
+}

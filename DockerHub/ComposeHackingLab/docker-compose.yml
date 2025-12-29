@@ -1,0 +1,45 @@
+version: "3.9"
+
+networks:
+  hackinglab:
+    name: hackinglab
+    driver: bridge
+
+services:
+  kali:
+    image: kalilinux/kali-rolling
+    container_name: kali
+    tty: true
+    stdin_open: true
+    networks:
+      - hackinglab
+    command: /bin/bash
+    volumes:
+      - kali_data:/root
+    # Optional: for GUI tools, uncomment below and configure X11 forwarding
+    # environment:
+    #   - DISPLAY=${DISPLAY}
+    #   - QT_X11_NO_MITSHM=1
+    # devices:
+    #   - /dev/dri:/dev/dri
+    #   - /dev/snd:/dev/snd
+
+  metasploitable2:
+    image: tleemcjr/metasploitable2
+    container_name: metasploitable2
+    networks:
+      - hackinglab
+    restart: unless-stopped
+
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: dvwa
+    networks:
+      - hackinglab
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+volumes:
+  kali_data:
+

@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Define a list of sentences
+options=(
+    "fastfetch image"
+    "powermenu style"
+    "Wallpaper"
+    "waybar"
+    "rofi launcher"
+)
+
+# Prepare a variable to hold all sentences for `rofi`
+rofi_input=""
+for option in "${options[@]}"; do
+    rofi_input+="$option\n"
+done
+
+CHOSEN=$(echo -e "$rofi_input" | rofi -dmenu -theme-str 'listview { columns: 1; lines: 6;}')
+
+case ${CHOSEN} in
+"fastfetch image")
+  rofi-set-fastfetch-image
+  ;;
+"powermenu style")
+  rofi-set-powermenu-style
+  ;;
+"Wallpaper")
+  rofi-set-wal
+  ;;
+"waybar")
+  waybar-theme-switcher
+  ;;
+"rofi launcher")
+  rofi-set-base-rofi-style
+  ;;
+esac
+
+
