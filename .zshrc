@@ -133,6 +133,7 @@ export PATH=$PATH:$HOME/.spicetify
 export PATH="$PATH:/home/lightninghacker/.lmstudio/bin"
 # End of LM Studio CLI section
 
+# sources OPENROUTER_API_KEY and TAVILY_API_KEY
 source $HOME/.env
 export OPENAI_API_KEY=$OPENROUTER_API_KEY
 export LLM_KEY=$OPENROUTER_API_KEY
