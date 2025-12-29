@@ -89,6 +89,9 @@ OPENEXTERNALLY: FALSE
 NAME: api list
 URL: https://apilist.fun/
 
+[LINK]
+NAME: .gitignore preconfig
+URL: https://github.com/github/gitignore
 
 
 [LINK]

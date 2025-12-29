@@ -32,6 +32,14 @@ echo "installing necessary packages"
 echo "installing flatpak applications"
 ./flatpak_install.sh
 
+echo "Enter your git email:"
+read email
+git config --global user.email "$email"
+
+echo "Enter your git username:"
+read username
+git config --global user.name "$username"
+
 sudo usermod -aG docker ${USER}
 # Register the `docker` group membership with current session without changing your primary group
 exec sg docker newgrp
