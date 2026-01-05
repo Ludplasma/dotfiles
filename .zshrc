@@ -72,9 +72,44 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git 
+  gitfast 
+  direnv 
+  alias-tips 
+  zsh-autosuggestions 
+  zsh-syntax-highlighting
+  z  
+  fasd
+  extract
+  history-substring-search
+  docker
+  python
+  npm 
+  node
+  docker-compose
+  git-auto-fetch
+)
 
 source $ZSH/oh-my-zsh.sh
+[[ -f /usr/share/fasd/fasd.sh ]] && source /usr/share/fasd/fasd.sh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+alias uva="uv add"
+alias uvr="uv remove"
+alias uvs="uv sync"
+alias uvrun="uv run"
+
+# ===============================
+# TMUX aliases
+# ===============================
+
+# Create or attach a session named after the current folder
+alias tmuxn='tmux new-session -A -s "$(basename "$PWD")"'
+
+# Kill the current session
+alias tmuxk='tmux kill-session -t "$(tmux display-message -p "#S")"'
 
 prompt_end() {
   if [[ -n $CURRENT_BG ]]; then
@@ -128,7 +163,6 @@ else
 fi
 
 export PATH=$PATH:$HOME/.spicetify
-
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/lightninghacker/.lmstudio/bin"
 # End of LM Studio CLI section
@@ -137,3 +171,4 @@ export PATH="$PATH:/home/lightninghacker/.lmstudio/bin"
 source $HOME/.env
 export OPENAI_API_KEY=$OPENROUTER_API_KEY
 export LLM_KEY=$OPENROUTER_API_KEY
+eval "$(direnv hook zsh)"
