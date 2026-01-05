@@ -1,0 +1,7 @@
+#!/bin/bash
+uv init
+uv sync
+echo '{
+  "venvPath": ".",
+  "venv": ".venv"
+}' >>pyrightconfig.json
