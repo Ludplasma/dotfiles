@@ -7,3 +7,7 @@ flatpak install flathub tv.plex.PlexDesktop
 flatpak install flathub com.github.iwalton3.jellyfin-media-player
 
 flatpak install flathub org.vinegarhq.Sober
+
+curl https://launcher.hytale.com/builds/release/linux/amd64/hytale-launcher-latest.flatpak --output ~/.cache/hytale-launcher-latest.flatpak
+flatpak install ~/.cache/hytale-launcher-latest.flatpak
+rm ~/.cache/hytale-launcher-latest.flatpak

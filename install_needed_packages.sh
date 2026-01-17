@@ -94,6 +94,8 @@ paru docker-compose
 paru obs-studio
 flatpak install flathub de.z_ray.Facetracker
 sudo pacman -S bitwarden
+sudo pacman -S wireshark-qt
+sudo pacman -S wireshark-cli
 
 #installing hyprland packages
 echo "installing hyprland packages"
