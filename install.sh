@@ -36,6 +36,14 @@ echo "Enter your git email:"
 read email
 git config --global user.email "$email"
 
+ssh-keygen -t ed25519 -C "$email"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+cat ~/.ssh/id_ed25519.pub
+print("add this to your github")
+print("GitHub → Settings → SSH and GPG keys")
+
 echo "Enter your git username:"
 read username
 git config --global user.name "$username"
