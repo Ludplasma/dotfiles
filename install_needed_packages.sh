@@ -29,7 +29,8 @@ sudo pacman -S imagemagick
 sudo pacman -S luarocks
 sudo pacman -S w3m
 sudo npm install -g live-server
-paru jre
+sudo pacman -S jre
+paru jdk-openjdk
 sudo pacman -S btop
 sudo pacman -S tmux
 sudo pacman -S lsd
@@ -59,7 +60,6 @@ sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/
 sudo pacman -S vlc
 paru wine
 paru cargo
-paru lmstudio
 paru ollama
 paru nautilus
 paru nautilus-admin-gtk4
@@ -73,7 +73,6 @@ sudo pacman -S tor
 sudo pacman -S proxychains
 paru prismlauncher
 sudo pacman -S ncurses fftw
-paru osu
 paru protonup-qt
 paru steam-devices
 sudo pacmman -S lutris
