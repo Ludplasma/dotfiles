@@ -1,0 +1,39 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+  echo "Error: Template name is required"
+  exit 1
+fi
+if [[ "$1" =~ [^a-zA-Z0-9_-] ]]; then
+  echo "Invalid template name: contains special characters (only letters, numbers, underscore and dash allowed)"
+  exit 1
+fi
+if [[ ! "$1" =~ [a-zA-Z] ]]; then
+  echo "Invalid template name: must contain at least one letter"
+  exit 1
+fi
+templateName="$1"
+
+if [[ -z "$2" ]]; then
+  echo "Error: Location is required"
+  exit 1
+fi
+if [[ "$2" =~ [^a-zA-Z0-9] ]]; then
+  echo "Invalid location: contains special characters"
+  exit 1
+fi
+if [[ ! "$2" =~ [a-zA-Z] ]]; then
+  echo "Invalid location: must contain at least one letter"
+  exit 1
+fi
+location="$2"
+
+templateDir="$HOME/.dotfiles/templates"
+currentDir="$(pwd)"
+
+rm -r "$currentDir/$location"
+cp -r "$templateDir/$templateName/template" "$currentDir/$location"
+
+cd "$currentDir/$location"
+sudo chmod +x "$templateDir/$templateName/setup.sh"
+sh "$templateDir/$templateName/setup.sh"

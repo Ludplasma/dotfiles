@@ -1,7 +1,7 @@
 #!/bin/bash
 #installing flatpak
 echo "installing flatpak"
-paru flatpak
+paru -S flatpak
 #isntalling other needed packages
 echo "isntalling other packages"
 sudo pacman -S pipewire-pulse
@@ -24,21 +24,21 @@ sudo pacman -S jq
 sudo pacman -S slurp
 sudo pacman -S grim
 sudo pacman -S uv
-paru ueberzug++
+paru -S ueberzug++
 sudo pacman -S imagemagick
 sudo pacman -S luarocks
 sudo pacman -S w3m
 sudo npm install -g live-server
 sudo pacman -S jre
-paru jdk-openjdk
+paru -S jdk-openjdk
 sudo pacman -S btop
 sudo pacman -S tmux
 sudo pacman -S lsd
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-paru neofetch
+paru -S neofetch
 sudo pacman -S fastfetch
-paru anifetch
-:udo pacman -S ffmpeg
+paru -S anifetch
+sudo pacman -S ffmpeg
 
 #installing fonts
 sudo pacman -S ttf-font-awesome
@@ -54,32 +54,33 @@ paru -S cursor-bin
 sudo pacman -S kate
 sudo pacman -S man
 
-paru discord
+paru -S discord
 sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"
 
 sudo pacman -S vlc
-paru wine
-paru cargo
-paru ollama
-paru nautilus
-paru nautilus-admin-gtk4
-paru nautilus-image-converter
-paru nautilus-open-any-terminal
+paru -S wine
+paru -S cargo
+paru -S ollama
+paru -S nautilus
+paru -S nautilus-admin-gtk4
+paru -S nautilus-image-converter
+paru -S nautilus-open-any-terminal
 sudo pacman -S okular
 sudo pacman -S gimp
-paru AppImageLauncher
-paru firefox
+paru -S AppImageLauncher
+paru -S firefox
 sudo pacman -S tor
 sudo pacman -S proxychains
-paru prismlauncher
+paru -S prismlauncher
+paru -S hyprism-git
 sudo pacman -S ncurses fftw
-paru protonup-qt
-paru steam-devices
+paru -S protonup-qt
+paru -S steam-devices
 sudo pacmman -S lutris
-paru ProtonUp-Qt
-paru golly
+paru -S ProtonUp-Qt
+paru -S golly
 
-paru spotify
+paru -S spotify
 #install spicetify
 sudo chmod a+wr /opt/spotify
 sudo chmod a+wr /opt/spotify/Apps
@@ -88,9 +89,9 @@ spicetify update
 spicetify apply
 
 sudo pacmman -S yt-dlp
-paru docker
-paru docker-compose
-paru obs-studio
+paru -S docker
+paru -S docker-compose
+paru -S obs-studio
 flatpak install flathub de.z_ray.Facetracker
 sudo pacman -S bitwarden
 sudo pacman -S wireshark-qt
@@ -110,28 +111,28 @@ sudo pacman -S bc brightnessctl
 sudo pacman -S hyprpolkitagent
 sudo pacman -S wl-clipboard
 sudo pacman -S otf-font-awesome
-paru xwaylandvideobridge
-paru uwsm
+paru -S xwaylandvideobridge
+paru -S uwsm
 
 #installing hyprland and additional utilities
-paru hyprland
-paru pywal
+paru -S hyprland
+paru -S pywal
 sudo pacman -S picom
-paru rofi
+paru -S rofi
 sudo pacman -S swww
-paru alsamixer
-paru waybar
-paru swaync
-paru hyprshot
-paru hyprlock
+paru -S alsamixer
+paru -S waybar
+paru -S swaync
+paru -S hyprshot
+paru -S hyprlock
 yay -S hyrpswitch
-paru rofi-calc
-paru rofi-emoji
+paru -S rofi-calc
+paru -S rofi-emoji
 sudo pacman -S python3-pywal
 sudo pacman -S bc
 sudo pacman -S python
-paru libc
+paru -S libc
 sudo pacman -S iniparser
 yay -S cava
 yay -S waybar-cava fftwava
-paru hyprsysteminfo
+paru -S hyprsysteminfo
