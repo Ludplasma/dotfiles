@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+SOURCE="$HOME/server/jellyfin/media/movies/"
+DEST="ludwig@lightninglud.org:~/server/jellyfin/media/movies/"
+
+# Move only directories
+rsync -av --progress --remove-source-files \
+  --prune-empty-dirs \
+  --dirs \
+  "$SOURCE" "$DEST"
