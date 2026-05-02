@@ -112,7 +112,7 @@ paru -S hyprland
 paru -S pywal
 sudo pacman -S picom
 paru -S rofi
-sudo pacman -S swww
+sudo pacman -S awww
 paru -S alsamixer
 paru -S waybar
 paru -S swaync
