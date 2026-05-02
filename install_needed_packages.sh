@@ -39,6 +39,14 @@ paru -S neofetch
 sudo pacman -S fastfetch
 paru -S anifetch
 sudo pacman -S ffmpeg
+sudo pacman -S ydotool
+sudo pacman -S python
+sudo pacman -S python-pip
+sudo pacman -S nmap
+sudo pacman -S direnv
+sudo pacman -S layout
+sudo pacman -S rsync
+sudo pacman -S mactelnet-client
 
 #installing fonts
 sudo pacman -S ttf-font-awesome
@@ -68,6 +76,9 @@ paru -S nautilus-open-any-terminal
 sudo pacman -S okular
 sudo pacman -S gimp
 paru -S firefox
+paru -S opera
+sudo pacman -S krita
+
 sudo pacman -S tor
 sudo pacman -S proxychains
 paru -S prismlauncher

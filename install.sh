@@ -60,6 +60,8 @@ sudo systemctl start tor
 docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ee:lts
 docker run -d -p 8020:80 --name it-tools -it corentinth/it-tools
 
+mkdir -p $HOME/server/jellyfin/media/movies/
+
 walsset ~/.config/walset/wallcurrent/wallpaper.jpg
 echo "system setup done"
 echo "REMEMBER TO SET UP CLOUDFLARE TUNNEL"
