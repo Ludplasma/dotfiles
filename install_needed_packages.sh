@@ -90,6 +90,13 @@ paru -S ProtonUp-Qt
 sudo pacman -S python-gobject gtk4
 paru -S golly
 
+#install linux account manager
+mkdir -p $HOME/Games/
+cd $HOME/Games/
+git clone https://github.com/evanovar/RobloxAccountManagerLinux.git
+cd RobloxAccountManagerLinux
+sudo pacman -S python-requests
+
 paru -S spotify
 
 sudo pacmman -S yt-dlp
