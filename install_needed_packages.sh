@@ -124,8 +124,5 @@ paru -S rofi-emoji
 sudo pacman -S python3-pywal
 sudo pacman -S bc
 sudo pacman -S python
-paru -S libc
-sudo pacman -S iniparser
 yay -S cava
-yay -S waybar-cava fftwava
 paru -S hyprsysteminfo
