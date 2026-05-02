@@ -67,26 +67,19 @@ paru -S nautilus-image-converter
 paru -S nautilus-open-any-terminal
 sudo pacman -S okular
 sudo pacman -S gimp
-paru -S AppImageLauncher
 paru -S firefox
 sudo pacman -S tor
 sudo pacman -S proxychains
 paru -S prismlauncher
-paru -S hyprism-git
 sudo pacman -S ncurses fftw
 paru -S protonup-qt
 paru -S steam-devices
 sudo pacmman -S lutris
 paru -S ProtonUp-Qt
+sudo pacman -S python-gobject gtk4
 paru -S golly
 
 paru -S spotify
-#install spicetify
-sudo chmod a+wr /opt/spotify
-sudo chmod a+wr /opt/spotify/Apps
-curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
-spicetify update
-spicetify apply
 
 sudo pacmman -S yt-dlp
 paru -S docker

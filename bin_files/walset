@@ -4,7 +4,7 @@ rm ~/.config/walset/wallcurrent/wallpaper.jpg
 cp $1 ~/.config/walset/wallcurrent/wallpaper.jpg
 rm -r ~/.cache/wal/schemes
 mkdir ~/.cache/wal/schemes
-swww img ~/.config/walset/wallcurrent/wallpaper.jpg --transition-type wipe
+awww img ~/.config/walset/wallcurrent/wallpaper.jpg --transition-type wipe
 wal -a 92 -i ~/.config/walset/wallcurrent/wallpaper.jpg
 
 #m move new themes to their config folders
@@ -16,7 +16,6 @@ cp ~/.cache/wal/colors-discord.css ~/.config/Vencord/themes/pywal-theme.css
 
 rm ~/.config/cava/config
 cp ~/.cache/wal/cava-config ~/.config/cava/config
-
 
 #reload apps that does not auto update themes
 resetHyprland
