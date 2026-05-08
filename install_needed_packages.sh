@@ -24,7 +24,6 @@ sudo pacman -S jq
 sudo pacman -S slurp
 sudo pacman -S grim
 sudo pacman -S uv
-paru -S ueberzug++
 sudo pacman -S imagemagick
 sudo pacman -S luarocks
 sudo pacman -S w3m
@@ -47,6 +46,7 @@ sudo pacman -S direnv
 sudo pacman -S layout
 sudo pacman -S rsync
 sudo pacman -S mactelnet-client
+sudo pacmman -S yt-dlp
 
 #installing fonts
 sudo pacman -S ttf-font-awesome
@@ -78,16 +78,16 @@ sudo pacman -S gimp
 paru -S firefox
 paru -S opera
 sudo pacman -S krita
+sudo pacman -S python-gobject gtk4
 
 sudo pacman -S tor
 sudo pacman -S proxychains
-paru -S prismlauncher
 sudo pacman -S ncurses fftw
+sudo pacmman -S lutris
+paru -S prismlauncher
 paru -S protonup-qt
 paru -S steam-devices
-sudo pacmman -S lutris
 paru -S ProtonUp-Qt
-sudo pacman -S python-gobject gtk4
 paru -S golly
 
 #install linux account manager
@@ -99,7 +99,6 @@ sudo pacman -S python-requests
 
 paru -S spotify
 
-sudo pacmman -S yt-dlp
 paru -S docker
 paru -S docker-compose
 paru -S obs-studio
@@ -128,19 +127,20 @@ paru -S uwsm
 #installing hyprland and additional utilities
 paru -S hyprland
 paru -S pywal
-sudo pacman -S picom
 paru -S rofi
-sudo pacman -S awww
 paru -S alsamixer
 paru -S waybar
 paru -S swaync
 paru -S hyprshot
 paru -S hyprlock
-yay -S hyrpswitch
+paru -S hyprsysteminfo
 paru -S rofi-calc
 paru -S rofi-emoji
+paru -S hyprswitch
 sudo pacman -S python3-pywal
 sudo pacman -S bc
 sudo pacman -S python
+sudo pacman -S picom
+sudo pacman -S awww
+yay -S hyrpswitch
 yay -S cava
-paru -S hyprsysteminfo

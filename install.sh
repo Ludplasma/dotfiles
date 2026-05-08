@@ -19,10 +19,6 @@ sudo pacman -S unzip
 echo "modifying configuration"
 ./link_config.sh
 
-#installs oh-my-zsh
-echo "installing oh-my-zsh"
-sudo pacman -S zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 #installs needed packages
 paru-update
@@ -63,6 +59,13 @@ docker run -d -p 8020:80 --name it-tools -it corentinth/it-tools
 mkdir -p $HOME/server/jellyfin/media/movies/
 
 walsset ~/.config/walset/wallcurrent/wallpaper.jpg
-echo "system setup done"
-echo "REMEMBER TO SET UP CLOUDFLARE TUNNEL"
-echo "ENJOY"
+rofi-set-base-rofi-style
+rofi-set-fastfetch-image
+rofi-set-powermenu-style
+
+#installs oh-my-zsh
+echo "zsh" >> ~/.bashrc
+echo "installing oh-my-zsh"
+sudo pacman -S zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+zsh

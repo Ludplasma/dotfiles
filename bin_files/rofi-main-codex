@@ -1,0 +1,42 @@
+#!/bin/bash
+
+CHOSEN=$(rofi -dmenu -p "CODE:")
+
+case ${CHOSEN} in
+"a")
+  rofi -show drun -show-icons
+  ;;
+"p")
+  rofi-power-menu
+  ;;
+"w")
+  rofi-wifi-menu
+  ;;
+"l")
+  hyprlock
+  ;;
+"co")
+  rofi-set-select-config
+  ;;
+"web")
+  cd ~/Projects/hyprlinkwindow/ && npm start
+  ;;
+"wal")
+  rofi-wifi-menu
+  ;;
+"emo")
+  rofi -show emoji --action clipboard
+  ;;
+"cal")
+  rofi -show calc -no-show-match -no-sort
+  ;;
+"tw")
+  toggle-waybar
+  ;;
+"ro")
+  python ~/Games/RobloxAccountManagerLinux/main.py
+  ;;
+"gamo")
+  game-net-optimize
+  ;;
+esac

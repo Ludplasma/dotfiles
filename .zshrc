@@ -101,6 +101,13 @@ alias uvr="uv remove"
 alias uvs="uv sync"
 alias uvrun="uv run"
 
+alias l.="lsd -d .* --color=auto"
+alias mkdir="mkdir -p"
+alias update="paru && flatpak update"
+alias c="clear"
+alias h="history"
+alias df="df -h"
+
 # ===============================
 # TMUX aliases
 # ===============================
