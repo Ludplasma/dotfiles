@@ -107,6 +107,7 @@ alias update="paru && flatpak update"
 alias c="clear"
 alias h="history"
 alias df="df -h"
+alias gitssh="convert-https-to-ssh-git"
 
 # ===============================
 # TMUX aliases
