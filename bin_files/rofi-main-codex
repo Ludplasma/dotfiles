@@ -7,13 +7,19 @@ case ${CHOSEN} in
   rofi -show drun -show-icons
   ;;
 "p")
-  rofi-power-menu
+  rofi-powermenu
+  ;;
+"pd")
+  systemctl poweroff
   ;;
 "w")
   rofi-wifi-menu
   ;;
 "l")
   hyprlock
+  ;;
+"c")
+  kitty -e nvim
   ;;
 "co")
   rofi-set-select-config
@@ -22,7 +28,7 @@ case ${CHOSEN} in
   cd ~/Projects/hyprlinkwindow/ && npm start
   ;;
 "wal")
-  rofi-wifi-menu
+  rofi-set-wal
   ;;
 "emo")
   rofi -show emoji --action clipboard
@@ -38,5 +44,14 @@ case ${CHOSEN} in
   ;;
 "gamo")
   game-net-optimize
+  ;;
+"code")
+  code
+  ;;
+"update")
+  kitty -e paru-update && flatpak update
+  ;;
+"mikb")
+  ~/Appps/Winbox_Linux/Winbox
   ;;
 esac

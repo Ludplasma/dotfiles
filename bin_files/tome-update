@@ -1,0 +1,7 @@
+#!/bin/bash
+mkdir -p ~/Games/
+cd ~/Games/
+wget -O tome.tar.bz2 https://te4.org/dl/t-engine/t-engine4-linux64-1.7.6-nomusic.tar.bz2
+tar -xvf tome.tar.bz2
+sudo chmod +x ~/Games/tome/t-engine
+rm ~/Games/tome.tar.bz2

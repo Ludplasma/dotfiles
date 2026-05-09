@@ -46,6 +46,7 @@ sudo pacman -S direnv
 sudo pacman -S layout
 sudo pacman -S rsync
 sudo pacman -S mactelnet-client
+sudo pacman -S inetutils
 sudo pacmman -S yt-dlp
 
 #installing fonts
