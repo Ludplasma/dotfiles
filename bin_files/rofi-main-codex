@@ -52,6 +52,9 @@ case ${CHOSEN} in
   kitty -e paru-update && flatpak update
   ;;
 "mikb")
-  ~/Appps/Winbox_Linux/Winbox
+  bash -c ~/Appps/WinBox_Linux/WinBox
+  ;;
+"tome")
+  cd ~/Games/tome && ~/Games/tome/t-engine
   ;;
 esac
