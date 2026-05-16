@@ -12,9 +12,23 @@ case ${CHOSEN} in
 "pd")
   systemctl poweroff
   ;;
+
 "w")
   rofi-wifi-menu
   ;;
+"wa")
+  notify-send "Wifi radio turned on"
+  nmcli radio wifi on
+  ;;
+"wd")
+  notify-send "Wifi radio turned off"
+  nmcli radio wifi off
+  ;;
+"nmr")
+  notify-send "Restarting NetworkManager"
+  sudo systemctl restart NetworkManager
+  ;;
+
 "l")
   hyprlock
   ;;
@@ -25,7 +39,7 @@ case ${CHOSEN} in
   rofi-set-select-config
   ;;
 "web")
-  cd ~/Projects/hyprlinkwindow/ && npm start
+  cd ~/projects/hyprlinkwindow/ && npm start
   ;;
 "wal")
   rofi-set-wal
@@ -41,6 +55,14 @@ case ${CHOSEN} in
   ;;
 "ro")
   python ~/Games/RobloxAccountManagerLinux/main.py
+  ;;
+"imt")
+  grim -g "$(slurp)" /tmp/ocr.png
+  tesseract /tmp/ocr.png stdout | wl-copy
+  notify-send "OCR copied to clipboard"
+  ;;
+"ai")
+  ailauncher
   ;;
 
 "cl")
@@ -96,5 +118,24 @@ case ${CHOSEN} in
 
 "tome")
   cd ~/Games/tome && ~/Games/tome/t-engine
+  ;;
+
+"cpup")
+  powerprofilesctl set performance
+  notify-send "Performance mode enabled"
+  ;;
+"cpub")
+  powerprofilesctl set balanced
+  notify-send "Balanced mode enabled"
+  ;;
+"cpus")
+  powerprofilesctl set power-saver
+  notify-send "Power saver enabled"
+  ;;
+"cpro")
+  PROJECT_DIR="$HOME/projects"
+  project=$(basename -a ~/projects/* | rofi -dmenu)
+  selected="$PROJECT_DIR/$project"
+  kitty --directory "$selected" nvim .
   ;;
 esac

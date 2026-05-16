@@ -47,6 +47,8 @@ sudo pacman -S layout
 sudo pacman -S rsync
 sudo pacman -S mactelnet-client
 sudo pacman -S inetutils
+sudo pacman -S cliphist
+sudo pacman -S tesseract tesseract-data-eng
 sudo pacmman -S yt-dlp
 
 #installing fonts
