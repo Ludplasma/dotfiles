@@ -79,11 +79,13 @@ paru -S nautilus-open-any-terminal
 sudo pacman -S okular
 sudo pacman -S gimp
 paru -S firefox
+paru -S tor-browser-bin
 paru -S opera
 sudo pacman -S krita
 sudo pacman -S python-gobject gtk4
 
 sudo pacman -S tor
+sudo pacman -S torsocks
 sudo pacman -S proxychains
 sudo pacman -S ncurses fftw
 sudo pacmman -S lutris

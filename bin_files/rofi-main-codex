@@ -120,6 +120,31 @@ case ${CHOSEN} in
   cd ~/Games/tome && ~/Games/tome/t-engine
   ;;
 
+"tor")
+  sudo systemctl start tor
+  ;;
+"tord")
+  sudo systemctl stop tor
+  ;;
+"torb")
+  tor-browser
+  ;;
+"tort")
+  torsocks kitty --class scratchpad
+  ;;
+
+"ippubtor")
+  torsocks echo -e $(curl -s https://ipinfo.io/ip) | wl-copy
+  ;;
+"ippub")
+  echo -e $(curl -s https://ipinfo.io/ip) | wl-copy
+  ;;
+"iplan")
+  LANIP=$(ip addr show | grep -w inet | grep -v 127.0.0.1 | awk '{print $2}' | cut -d'/' -f1 | head -n1)
+  notify-send "LAN IP: $LANIP"
+  ehco "$LANIP" | wl-copy
+  ;;
+
 "cpup")
   powerprofilesctl set performance
   notify-send "Performance mode enabled"
