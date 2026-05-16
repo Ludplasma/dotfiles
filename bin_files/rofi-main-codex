@@ -42,18 +42,58 @@ case ${CHOSEN} in
 "ro")
   python ~/Games/RobloxAccountManagerLinux/main.py
   ;;
+
+"cl")
+  cliphist list | rofi -dmenu -p "Clipboard" | cliphist decode | wl-copy
+  ;;
+"cld")
+  cliphist list | rofi -dmenu -p "Clipboard" | cliphist delete
+  ;;
+"clw")
+  cliphist wipe
+  ;;
+
 "gamo")
   game-net-optimize
   ;;
 "code")
   code
   ;;
-"update")
-  kitty -e paru-update && flatpak update
+"note")
+  note="$HOME/notes/quick.md"
+  kitty -e nvim "$note"
   ;;
+"update")
+  kitty -e sudo pacman -Syu
+  kitty -e flatpak update#!/usr/bin/env bash
+
+  if paru -Qua | grep -q '^paru '; then
+    echo "paru update available"
+    paru-update
+  else
+    echo "paru is current"
+  fi
+  ;;
+
+"firea")
+  kitty -e sudo systemctl stop firewalld
+  ;;
+"fired")
+  kitty -e sudo systemctl start firewalld
+  ;;
+
 "mikb")
   bash -c ~/Appps/WinBox_Linux/WinBox
   ;;
+"mikc")
+  kitty -e sudo systemctl stop firewalld
+  kitty -e sudo ip addr add 192.168.88.2/24 dev enp0s20f0u2
+  ;;
+"mikd")
+  kitty -e sudo systemctl start firewalld
+  kitty -e sudo ip addr delete 192.168.88.2/24 dev enp0s20f0u2
+  ;;
+
 "tome")
   cd ~/Games/tome && ~/Games/tome/t-engine
   ;;
