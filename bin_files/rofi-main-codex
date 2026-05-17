@@ -67,6 +67,15 @@ case ${CHOSEN} in
 "sysre")
   kitty -e btop -u 200 -p 2
   ;;
+"zap")
+  flatpak run com.rtosta.zapzap
+  ;;
+"steam")
+  flatpak run com.valvesoftware.Steam
+  ;;
+"gw2")
+  xdg-open "steam://rungameid/1284210/"
+  ;;
 
 "ai")
   ailauncher -m chat

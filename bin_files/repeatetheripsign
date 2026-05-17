@@ -1,0 +1,18 @@
+#!/bin/bash
+INTERFACE="enp0s20f0u2"
+IP_ADDR="192.168.88.2/24"
+
+while true; do
+    # Check if interface has an IPv4 address
+    if ! ip -4 addr show "$INTERFACE" | grep -q "inet "; then
+        echo "$(date): No IP on $INTERFACE, assigning $IP_ADDR"
+
+        # Bring interface up
+        ip link set "$INTERFACE" up
+
+        # Assign IP
+        ip addr add "$IP_ADDR" dev "$INTERFACE"
+    fi
+
+    sleep 10
+done
