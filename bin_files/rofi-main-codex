@@ -41,6 +41,9 @@ case ${CHOSEN} in
 "web")
   cd ~/projects/hyprlinkwindow/ && npm start
   ;;
+"webn")
+  nativeweblauncher
+  ;;
 "wal")
   rofi-set-wal
   ;;
@@ -61,6 +64,10 @@ case ${CHOSEN} in
   tesseract /tmp/ocr.png stdout | wl-copy
   notify-send "OCR copied to clipboard"
   ;;
+"sysre")
+  kitty -e btop -u 200 -p 2
+  ;;
+
 "ai")
   ailauncher -m chat
   ;;
@@ -69,6 +76,19 @@ case ${CHOSEN} in
   ;;
 "aiq")
   ailauncher -m singleword
+  ;;
+"aimt")
+  ai-ocr-launcher
+  ;;
+"aichat")
+  profile_dir="$HOME/.local/share/webapps/openrouter"
+  mkdir -p "$profile_dir"
+  "chromium" \
+    --ozone-platform=wayland \
+    --enable-features=UseOzonePlatform \
+    --app="https://openrouter.ai/chat" \
+    --user-data-dir="$profile_dir" \
+    >/dev/null 2>&1 &
   ;;
 
 "cl")

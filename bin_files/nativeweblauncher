@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+BROWSER="chromium"
+CONFIG_FILE="$HOME/.config/nativeweb/apps.conf"
+
+# Exit if config file does not exist
+[ ! -f "$CONFIG_FILE" ] && {
+  echo "Config file not found: $CONFIG_FILE"
+  exit 1
+}
+
+declare -A APPS
+
+# Load config entries: name|url
+while IFS='|' read -r name url; do
+  # Skip empty lines or comments
+  [[ -z "$name" || "$name" =~ ^# ]] && continue
+
+  APPS["$name"]="$url"
+done < "$CONFIG_FILE"
+
+site=$(
+  printf '%s\n' "${!APPS[@]}" \
+    | sort \
+    | rofi -dmenu -i -p "Web Apps"
+)
+
+[ -z "$site" ] && exit
+
+url="${APPS[$site]}"
+
+profile_name=$(
+  echo "$site" \
+    | tr '[:upper:]' '[:lower:]' \
+    | sed 's/ /-/g'
+)
+
+profile_dir="$HOME/.local/share/webapps/$profile_name"
+
+mkdir -p "$profile_dir"
+
+"$BROWSER" \
+  --ozone-platform=wayland \
+  --enable-features=UseOzonePlatform \
+  --app="$url" \
+  --user-data-dir="$profile_dir" \
+  >/dev/null 2>&1 &

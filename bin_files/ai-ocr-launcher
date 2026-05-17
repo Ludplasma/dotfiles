@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+source ~/.env
+
+MODEL="openai/gpt-4.1-mini"
+
+TMP_IMG="/tmp/ocr_capture.png"
+
+grim -g "$(slurp)" "$TMP_IMG" || exit
+
+BASE64_IMAGE=$(base64 -w 0 "$TMP_IMG")
+
+response=$(curl -s https://openrouter.ai/api/v1/chat/completions \
+  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d "{
+    \"model\": \"$MODEL\",
+    \"messages\": [
+      {
+        \"role\": \"user\",
+        \"content\": [
+          {
+            \"type\": \"text\",
+            \"text\": \"Extract all text from this image exactly.\"
+          },
+          {
+            \"type\": \"image_url\",
+            \"image_url\": {
+              \"url\": \"data:image/png;base64,$BASE64_IMAGE\"
+            }
+          }
+        ]
+      }
+    ]
+  }")
+
+answer=$(echo "$response" | jq -r '.choices[0].message.content')
+
+if [ "$answer" = "null" ] || [ -z "$answer" ]; then
+    notify-send "OCR failed"
+    exit 1
+fi
+
+printf "%s" "$answer" | wl-copy
+
+notify-send "OCR copied to clipboard"
