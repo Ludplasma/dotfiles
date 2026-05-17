@@ -62,7 +62,13 @@ case ${CHOSEN} in
   notify-send "OCR copied to clipboard"
   ;;
 "ai")
-  ailauncher
+  ailauncher -m chat
+  ;;
+"aic")
+  ailauncher -m command
+  ;;
+"aiq")
+  ailauncher -m singleword
   ;;
 
 "cl")

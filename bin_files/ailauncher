@@ -1,30 +1,68 @@
 #!/bin/bash
+
 source ~/.env
+
 API_KEY="$OPENROUTER_API_KEY"
 MODEL="openai/gpt-4.1-mini"
 
-prompt=$(rofi -dmenu -p "Ask AI")
+usage() {
+  echo "Usage: ailauncher -m [command|singleword|chat]"
+  exit 1
+}
+
+while getopts "m:" opt; do
+  case "$opt" in
+  m) MODE="$OPTARG" ;;
+  *) usage ;;
+  esac
+done
+
+[ -z "$MODE" ] && usage
+
+case "$MODE" in
+command)
+  SYSTEM_PROMPT="Return only a valid shell command. No explanations, no markdown, no newlines."
+  ;;
+singleword)
+  SYSTEM_PROMPT="Reply with exactly one word only. No punctuation, no newlines."
+  ;;
+chat)
+  SYSTEM_PROMPT="Keep responses short, informative, and on a single line."
+  ;;
+*)
+  echo "Invalid mode: $MODE"
+  usage
+  ;;
+esac
+
+prompt=$(rofi -dmenu -p "Ask AI ($MODE)")
 
 [ -z "$prompt" ] && exit
+
+json_payload=$(jq -n \
+  --arg model "$MODEL" \
+  --arg system "$SYSTEM_PROMPT" \
+  --arg user "$prompt" \
+  '{
+    model: $model,
+    messages: [
+      {
+        role: "system",
+        content: $system
+      },
+      {
+        role: "user",
+        content: $user
+      }
+    ]
+  }')
 
 response=$(curl -s https://openrouter.ai/api/v1/chat/completions \
   -H "Authorization: Bearer $API_KEY" \
   -H "Content-Type: application/json" \
-  -d "{
-    \"model\": \"$MODEL\",
-    \"messages\": [
-      {
-        \"role\": \"system\",
-        \"content\": \"Do not use new lines in responses, Keep responses short and informative\"
-      },
-      {
-        \"role\": \"user\",
-        \"content\": \"$prompt\"
-      }
-    ]
-  }" | jq -r '.choices[0].message.content')
+  -d "$json_payload" | jq -r '.choices[0].message.content')
 
-[ -z "$response" ] && {
+[ -z "$response" ] || [ "$response" = "null" ] && {
   notify-send "AI request failed"
   exit 1
 }
@@ -33,7 +71,17 @@ selected=$(printf "%s" "$response" | rofi \
   -dmenu \
   -i \
   -p "AI Response (Enter = Copy)" \
-  -theme-str 'window {width: 70%; height: 60%;}')
+  -theme-str '
+        window {
+            width: 95%;
+            height: 60%;
+        }
+
+        element-text {
+            font: "JetBrainsMono Nerd Font 10";
+            horizontal-align: 0.0;
+        }
+    ')
 
 [ -n "$selected" ] && {
   printf "%s" "$response" | wl-copy
