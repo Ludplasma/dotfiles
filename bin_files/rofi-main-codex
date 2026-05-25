@@ -64,6 +64,9 @@ case ${CHOSEN} in
   tesseract /tmp/ocr.png stdout | wl-copy
   notify-send "OCR copied to clipboard"
   ;;
+"sd")
+  draw_screenshot
+  ;;
 "sysre")
   kitty -e btop -u 200 -p 2
   ;;
@@ -75,6 +78,9 @@ case ${CHOSEN} in
   ;;
 "gw2")
   xdg-open "steam://rungameid/1284210/"
+  ;;
+"music")
+  spotify
   ;;
 
 "ai")
@@ -122,7 +128,7 @@ case ${CHOSEN} in
   ;;
 "update")
   kitty -e sudo pacman -Syu
-  kitty -e flatpak update#!/usr/bin/env bash
+  kitty -e flatpak update
 
   if paru -Qua | grep -q '^paru '; then
     echo "paru update available"

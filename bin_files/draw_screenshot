@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -e
+
+TMPFILE="/tmp/screenshot-$(date +%s).png"
+
+# Take area screenshot
+grim -g "$(slurp)" "$TMPFILE"
+
+# Open annotation UI
+swappy -f "$TMPFILE" -o "$TMPFILE"
+
+# Copy result to clipboard
+wl-copy <"$TMPFILE"
+
+# Optional desktop notification
+if command -v notify-send >/dev/null; then
+  notify-send "Screenshot copied to clipboard"
+fi
+
+# Cleanup
+rm -f "$TMPFILE"
