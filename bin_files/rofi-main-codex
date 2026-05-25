@@ -38,12 +38,16 @@ case ${CHOSEN} in
 "co")
   rofi-set-select-config
   ;;
-"web")
-  cd ~/projects/hyprlinkwindow/ && npm start
-  ;;
 "webn")
   nativeweblauncher
   ;;
+"web")
+  weblinks -p
+  ;;
+"webw")
+  weblinks -w
+  ;;
+
 "wal")
   rofi-set-wal
   ;;

@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+# Config locations
+PERSONAL_CONF="$HOME/.config/hyprlinkwindow/personal.conf"
+WORK_CONF="$HOME/.config/hyprlinkwindow/work.conf"
+
+# Parse arguments
+case "$1" in
+    -p)
+        CONFIG="$PERSONAL_CONF"
+        BROWSER="firefox"
+        ;;
+    -w)
+        CONFIG="$WORK_CONF"
+        BROWSER="chromium"
+        ;;
+    *)
+        echo "Usage: $0 [-p | -w]"
+        exit 1
+        ;;
+esac
+
+# Get names from config
+CHOICE=$(grep -i '^NAME:' "$CONFIG" \
+    | sed 's/^NAME:[[:space:]]*//' \
+    | rofi -dmenu -i -p "Links:" -theme-str 'listview { columns: 1; lines: 6;}')
+
+# Exit if nothing selected
+[ -z "$CHOICE" ] && exit 0
+
+# Find matching URL
+URL=$(awk -v choice="$CHOICE" '
+BEGIN { IGNORECASE=1 }
+/^NAME:/ {
+    sub(/^NAME:[[:space:]]*/, "", $0)
+    current=$0
+}
+/^URL:/ {
+    sub(/^URL:[[:space:]]*/, "", $0)
+    if (current == choice) {
+        print
+        exit
+    }
+}
+' "$CONFIG")
+
+# Open selected URL
+[ -n "$URL" ] && "$BROWSER" "$URL" >/dev/null 2>&1 &
