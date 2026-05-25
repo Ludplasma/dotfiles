@@ -50,7 +50,8 @@ sudo pacman -S inetutils
 sudo pacman -S cliphist
 sudo pacman -S tesseract tesseract-data-eng
 sudo pacman -S power-profiles-daemon
-sudo pacmman -S yt-dlp
+sudo pacman -S yt-dlp
+sudo pacman -S swappy
 
 #installing fonts
 sudo pacman -S ttf-font-awesome
