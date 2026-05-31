@@ -67,7 +67,7 @@ paru -S cursor-bin
 sudo pacman -S kate
 sudo pacman -S man
 
-paru -S discord
+sudo pacman -S discord
 sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"
 
 sudo pacman -S vlc
