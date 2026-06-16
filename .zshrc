@@ -181,3 +181,4 @@ source $HOME/.env
 export OPENAI_API_KEY=$OPENROUTER_API_KEY
 export LLM_KEY=$OPENROUTER_API_KEY
 eval "$(direnv hook zsh)"
+export PATH=/home/ludwig/.opencode/bin:$PATH
