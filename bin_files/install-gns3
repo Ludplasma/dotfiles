@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "Do not install git versions"
+
+paru qemu docker vpcs dynamips libvirt ubridge inetutils kvm wireshark-qt
+sudo pacman -S libvirt dnsmasq iptables-nft btrfs-progs
+sudo pacman -S xterm
+paru gns3-server gns3-gui
+sudo usermod -aG docker $USER
+sudo usermod -aG libvirt $USER
+sudo usermod -aG kvm $USER
+sudo systemctl enable --now libvirtd.service
+#sudo virsh net-start default starts the nat tunnel

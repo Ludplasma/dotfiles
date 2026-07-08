@@ -83,8 +83,13 @@ case ${CHOSEN} in
 "gw2")
   xdg-open "steam://rungameid/1284210/"
   ;;
+"mine":
+  prismlauncher
 "music")
   spotify
+  ;;
+"gns")
+  gns3
   ;;
 
 "ai")
