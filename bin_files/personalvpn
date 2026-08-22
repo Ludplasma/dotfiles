@@ -1,0 +1,16 @@
+#!/bin/bash
+
+case "$1" in
+    -down)
+        sudo ip link set down dev wg0
+        ;;
+    -up)
+        sudo ip link set up dev wg0
+        sudo ip route add 10.77.100.0/24 dev wg0
+        sudo ip route add 192.168.207.0/24 dev wg0
+        ;;
+    *)
+        echo "Usage: $0 {-down|-up}"
+        exit 1
+        ;;
+esac

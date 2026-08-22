@@ -21,7 +21,7 @@ response=$(curl -s https://openrouter.ai/api/v1/chat/completions \
         \"content\": [
           {
             \"type\": \"text\",
-            \"text\": \"Extract all text from this image exactly.\"
+            \"text\": \"Extract all text from this image exactly and return just the rext in the image. Do not include anything else in the response\"
           },
           {
             \"type\": \"image_url\",
@@ -37,8 +37,8 @@ response=$(curl -s https://openrouter.ai/api/v1/chat/completions \
 answer=$(echo "$response" | jq -r '.choices[0].message.content')
 
 if [ "$answer" = "null" ] || [ -z "$answer" ]; then
-    notify-send "OCR failed"
-    exit 1
+  notify-send "OCR failed"
+  exit 1
 fi
 
 printf "%s" "$answer" | wl-copy

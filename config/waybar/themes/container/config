@@ -1,8 +1,8 @@
 {
 	"layer": "top",
-	"modules-left": ["custom/launcher","cpu","memory","disk","hyprland/workspaces"],
+	"modules-left": ["cpu","memory","disk","hyprland/workspaces"],
 	"modules-center": ["clock"],
-	"modules-right": ["keyboard-state" ,"tray","hyprland/language","backlight","pulseaudio","battery","custom/power"],
+	"modules-right": ["keyboard-state" ,"tray","hyprland/language","backlight","pulseaudio","battery"],
 	
 	"pulseaudio": {
 		"tooltip": false,
@@ -73,7 +73,7 @@
     },
     "hyprland/language": {
         "format": "  {1}",
-        "tooltip": false,
+        "tooltip": false
     },
     "cpu": {
         "interval": 15,
@@ -84,12 +84,6 @@
         "interval": 30,
         "format": "  {}%",
         "max-length": 10
-    },
-    "custom/launcher":{
-        "format": " ",
-        "on-click": "rofi -show drun",
-        "on-click-right": "killall rofi",
-        "tooltip": false
     },
     "custom/power":{
         "format": "⏻ ",
@@ -113,6 +107,6 @@
             "urgent": "",
             "active": "",
             "default": ""
-    },
-    },
+    }
+  }
 }

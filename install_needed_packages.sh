@@ -52,6 +52,9 @@ sudo pacman -S tesseract tesseract-data-eng
 sudo pacman -S power-profiles-daemon
 sudo pacman -S yt-dlp
 sudo pacman -S swappy
+sudo pacman -S wireguard-tools
+sudo pacman -S xterm
+sudo pacman -S traceroute
 
 #installing fonts
 sudo pacman -S ttf-font-awesome

@@ -149,10 +149,10 @@ case ${CHOSEN} in
   ;;
 
 "firea")
-  kitty -e sudo systemctl stop firewalld
+  kitty -e sudo systemctl start firewalld
   ;;
 "fired")
-  kitty -e sudo systemctl start firewalld
+  kitty -e sudo systemctl stop firewalld
   ;;
 
 "mikb")
