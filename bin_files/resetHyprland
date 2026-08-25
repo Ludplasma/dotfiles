@@ -11,5 +11,8 @@ hyprctl dispatch exec hyprswitchINIT
 pkill batteryalert
 hyprctl dispatch exec batteryalertL
 
+pkill hyprshell
+hyprctl dispatch exec hyprshell run
+
 systemctl --user restart pipewire.servie
 hyprctl reload
