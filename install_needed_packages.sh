@@ -100,6 +100,8 @@ cd RobloxAccountManagerLinux
 sudo pacman -S python-requests
 
 paru -S spotify
+paru -S cliamp
+sudo pacman -S pipewire-alsa
 
 sudo pacman -S docker
 sudo pacman -S docker-compose
@@ -128,7 +130,6 @@ paru -S uwsm
 #installing hyprland and additional utilities
 paru -S hyprland
 paru -S rofi
-paru -S alsamixer
 paru -S waybar
 paru -S swaync
 paru -S hyprshot
@@ -136,7 +137,7 @@ paru -S hyprlock
 paru -S hyprsysteminfo
 paru -S rofi-calc
 paru -S rofi-emoji
-paru -S hyprswitch
+paru -S hyprshell
 sudo pacman -S python-pywal
 sudo pacman -S python
 sudo pacman -S picom
