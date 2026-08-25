@@ -126,9 +126,6 @@ case ${CHOSEN} in
   cliphist wipe && rm ~/.cache/cliphist/db
   ;;
 
-"gamo")
-  game-net-optimize
-  ;;
 "code")
   code
   ;;

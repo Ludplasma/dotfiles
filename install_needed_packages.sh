@@ -7,17 +7,14 @@ echo "isntalling other packages"
 sudo pacman -S pipewire-pulse
 sudo pacman -S wireplumber
 sudo pacman -S pavucontrol
-sudo pacman -S blueZ
+sudo pacman -S bluez
 sudo pacman -S blueman
 sudo pacman -S sed
 sudo pacman -S neovim
-sudo pacman -S npm
-sudo pacman -S nodejs
+sudo pacman -S nodejs npm
 sudo pacman -S ripgrep
 sudo pacman -S lazygit
-npm install tree-sitter-cli
 sudo pacman -S bottom
-sudo pacman -S python3
 sudo pacman -S fzf
 sudo pacman -S fd
 sudo pacman -S jq
@@ -27,20 +24,16 @@ sudo pacman -S uv
 sudo pacman -S imagemagick
 sudo pacman -S luarocks
 sudo pacman -S w3m
-sudo npm install -g live-server
-sudo pacman -S jre
 paru -S jdk-openjdk
 sudo pacman -S btop
 sudo pacman -S tmux
 sudo pacman -S lsd
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-paru -S neofetch
 sudo pacman -S fastfetch
 paru -S anifetch
 sudo pacman -S ffmpeg
 sudo pacman -S ydotool
 sudo pacman -S python
-sudo pacman -S python-pip
 sudo pacman -S nmap
 sudo pacman -S direnv
 sudo pacman -S layout
@@ -55,9 +48,9 @@ sudo pacman -S swappy
 sudo pacman -S wireguard-tools
 sudo pacman -S xterm
 sudo pacman -S traceroute
+sudo pacman -S cronie
 
 #installing fonts
-sudo pacman -S ttf-font-awesome
 sudo pacman -S noto-fonts-emoji
 
 sudo pacman -S ttf-jetbrains-mono-nerd
@@ -74,16 +67,16 @@ sudo pacman -S discord
 sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"
 
 sudo pacman -S vlc
-paru -S wine
-paru -S cargo
-paru -S ollama
-paru -S nautilus
+sudo pacman -S wine
+sudo pacman -S cargo
+sudo pacman -S ollama
+sudo pacman -S nautilus
 paru -S nautilus-admin-gtk4
 paru -S nautilus-image-converter
 paru -S nautilus-open-any-terminal
 sudo pacman -S okular
 sudo pacman -S gimp
-paru -S firefox
+sudo pacman -S firefox
 paru -S tor-browser-bin
 paru -S opera
 sudo pacman -S krita
@@ -93,11 +86,10 @@ sudo pacman -S tor
 sudo pacman -S torsocks
 sudo pacman -S proxychains
 sudo pacman -S ncurses fftw
-sudo pacmman -S lutris
+sudo pacman -S lutris
 paru -S prismlauncher
 paru -S protonup-qt
 paru -S steam-devices
-paru -S ProtonUp-Qt
 paru -S golly
 
 #install linux account manager
@@ -109,9 +101,9 @@ sudo pacman -S python-requests
 
 paru -S spotify
 
-paru -S docker
-paru -S docker-compose
-paru -S obs-studio
+sudo pacman -S docker
+sudo pacman -S docker-compose
+sudo pacman -S obs-studio
 flatpak install flathub de.z_ray.Facetracker
 sudo pacman -S bitwarden
 sudo pacman -S wireshark-qt
@@ -130,13 +122,11 @@ sudo pacman -S hyprland-qtutils
 sudo pacman -S bc brightnessctl
 sudo pacman -S hyprpolkitagent
 sudo pacman -S wl-clipboard
-sudo pacman -S otf-font-awesome
 paru -S xwaylandvideobridge
 paru -S uwsm
 
 #installing hyprland and additional utilities
 paru -S hyprland
-paru -S pywal
 paru -S rofi
 paru -S alsamixer
 paru -S waybar
@@ -147,8 +137,7 @@ paru -S hyprsysteminfo
 paru -S rofi-calc
 paru -S rofi-emoji
 paru -S hyprswitch
-sudo pacman -S python3-pywal
-sudo pacman -S bc
+sudo pacman -S python-pywal
 sudo pacman -S python
 sudo pacman -S picom
 sudo pacman -S awww
