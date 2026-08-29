@@ -9,6 +9,7 @@ sudo pacman -S wireplumber
 sudo pacman -S pavucontrol
 sudo pacman -S bluez
 sudo pacman -S blueman
+sudo pacman -S bluetoothctl
 sudo pacman -S sed
 sudo pacman -S neovim
 sudo pacman -S nodejs npm
