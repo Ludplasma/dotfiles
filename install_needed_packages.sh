@@ -89,6 +89,7 @@ sudo pacman -S firefox
 paru -S tor-browser-bin
 sudo pacman -S krita
 sudo pacman -S python-gobject gtk4
+sudo pacman -S cava
 
 sudo pacman -S tor
 sudo pacman -S torsocks
