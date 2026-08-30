@@ -8,10 +8,6 @@ pkill swaync
 sleep 0.2
 hyprctl eval "hl.exec_cmd('swaync')"
 
-pkill hyprswitch
-sleep 0.2
-hyprctl eval "hl.exec_cmd('hyprswitch')"
-
 pkill batteryalert
 sleep 0.2
 hyprctl eval "hl.exec_cmd('batteryalert')"
