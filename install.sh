@@ -57,7 +57,9 @@ docker run -d -p 8020:80 --name it-tools -it corentinth/it-tools
 
 mkdir -p $HOME/server/jellyfin/media/movies/
 
-walsset ~/.config/walset/wallcurrent/wallpaper.jpg
+mkdir -p ~/.cache/walset/wallcurrent/
+cp ~/.config/walset/wallpapers/Kath_hypr.png ~/.cache/walset/wallcurrent/wallpaper.jpg
+walset ~/.cache/walset/wallcurrent/wallpaper.jpg
 rofi-set-base-rofi-style
 rofi-set-fastfetch-image
 rofi-set-powermenu-style

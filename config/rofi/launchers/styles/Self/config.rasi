@@ -222,7 +222,7 @@ listview, inputbar, message {
   lines:   4;
 }
 inputbar {
-    background-image: url("~/.config/walset/wallcurrent/wallpaper.jpg", width);
+    background-image: url("~/.cache/walset/wallcurrent/wallpaper.jpg", width);
     padding: 100px 0px;
     border-color: @urgent-background; 
 }

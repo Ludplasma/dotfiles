@@ -1,11 +1,11 @@
 #!/bin/bash
-mkdir -p ~/.config/walset/wallcurrent
-rm ~/.config/walset/wallcurrent/wallpaper.jpg
-cp $1 ~/.config/walset/wallcurrent/wallpaper.jpg
+mkdir -p ~/.cache/walset/wallcurrent
+rm ~/.cache/walset/wallcurrent/wallpaper.jpg
+cp $1 ~/.cache/walset/wallcurrent/wallpaper.jpg
 rm -r ~/.cache/wal/schemes
 mkdir ~/.cache/wal/schemes
-awww img ~/.config/walset/wallcurrent/wallpaper.jpg --transition-type wipe
-wal -a 92 -i ~/.config/walset/wallcurrent/wallpaper.jpg
+awww img ~/.cache/walset/wallcurrent/wallpaper.jpg --transition-type wipe
+wal -a 92 -i ~/.cache/walset/wallcurrent/wallpaper.jpg
 
 #m move new themes to their config folders
 rm ~/.config/hyprswitch/style.css
