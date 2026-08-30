@@ -14,7 +14,7 @@ hyprctl eval "hl.exec_cmd('batteryalert')"
 
 pkill hyprshell
 sleep 0.2
-hyprctl eval "hl.exec_cmd('hyprshell run')"
+hyprctl eval "hl.exec_cmd('hyprshell-init')"
 
 systemctl --user restart pipewire.service
 

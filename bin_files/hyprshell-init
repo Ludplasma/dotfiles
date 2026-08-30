@@ -1,0 +1,2 @@
+#!/bin/bash
+hyprshell run -s ~/.cache/wal/hyprshell-styles.css

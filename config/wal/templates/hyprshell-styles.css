@@ -1,0 +1,16 @@
+:root {{
+  --border-color: {color4};
+  --border-color-active: {color5};
+
+  --bg-color: {background};
+  --bg-color-hover: {color8};
+
+  --border-radius: 7px;
+  --border-size: 2px;
+  --border-style: solid;
+
+  --text-color: {foreground};
+
+  --window-padding: 4px;
+  --bg-window-color: {color0};
+}}

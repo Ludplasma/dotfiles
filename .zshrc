@@ -164,7 +164,7 @@ prompt_end() {
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-wal -i ~/.config/walset/wallcurrent/wallpaper.jpg
+wal -i ~/.cache/walset/wallcurrent/wallpaper.jpg
 clear
 if [ -n "$TMUX" ]; then
     neofetch
