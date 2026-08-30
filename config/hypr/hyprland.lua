@@ -126,7 +126,8 @@ hl.config({
 		border_size = 2,
 		-- https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
 		-- Set to true enable resizing windows by clicking and dragging on borders and gaps
-		resize_on_border = false,
+		resize_on_border = true,
+		extend_border_grab_area = 15,
 		-- Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
 		allow_tearing = false,
 		layout = "dwindle",
