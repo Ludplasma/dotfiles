@@ -109,6 +109,7 @@ alias h="history"
 alias df="df -h"
 alias gitssh="convert-https-to-ssh-git"
 alias ssh="kitty +kitten ssh"
+alias cava="cava -p ~/.cache/wal/cava-config"
 
 # ===============================
 # TMUX aliases

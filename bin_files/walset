@@ -14,8 +14,5 @@ cp ~/.cache/wal/colors-hyprswitch.css ~/.config/hyprswitch/style.css
 rm ~/.config/Vencord/themes/pywal-theme.css
 cp ~/.cache/wal/colors-discord.css ~/.config/Vencord/themes/pywal-theme.css
 
-rm ~/.config/cava/config
-cp ~/.cache/wal/cava-config ~/.config/cava/config
-
 #reload apps that does not auto update themes
 resetHyprland
