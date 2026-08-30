@@ -1,6 +1,6 @@
 :root {
-    --border-color: #681ED8;
-    --border-color-active: #2339DC;
+    --border-color: #2830D3;
+    --border-color-active: #19209B;
     --bg-color: rgba(20, 20 ,20, 0);
     --bg-color-hover: rgba(20, 20 ,20, 0);
     --border-radius: 20px;
@@ -9,16 +9,16 @@
 }
 
 .workspace {
-    --bg-color: #02010A;
-    --bg-color-hover: #681ED8;
-    --border-color: #2339DC;
+    --bg-color: #020111;
+    --bg-color-hover: #2830D3;
+    --border-color: #19209B;
     margin: 5px;
     --border-size: 4px;
 }
 
 .index {
     visibility: hidden;
-    --bg-color: #9530EF;
+    --bg-color: #2853EA;
     padding: 7px;
 }
 

@@ -1,18 +1,25 @@
 #!/bin/bash
+
 pkill waybar
-hyprctl dispatch exec waybar
+sleep 0.2
+hyprctl eval "hl.exec_cmd('waybar')"
 
 pkill swaync
-hyprctl dispatch exec swaync
+sleep 0.2
+hyprctl eval "hl.exec_cmd('swaync')"
 
 pkill hyprswitch
-hyprctl dispatch exec hyprswitchINIT
+sleep 0.2
+hyprctl eval "hl.exec_cmd('hyprswitch')"
 
 pkill batteryalert
-hyprctl dispatch exec batteryalertL
+sleep 0.2
+hyprctl eval "hl.exec_cmd('batteryalert')"
 
 pkill hyprshell
-hyprctl dispatch exec hyprshell run
+sleep 0.2
+hyprctl eval "hl.exec_cmd('hyprshell run')"
 
-systemctl --user restart pipewire.servie
+systemctl --user restart pipewire.service
+
 hyprctl reload

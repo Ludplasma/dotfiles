@@ -1,5 +1,15 @@
 #!/bin/bash
 #installing flatpak
+
+if command -v paru &>/dev/null; then
+  echo "Paru is installed."
+  paru -Syu
+else
+  echo "Error: Paru is not installed."
+  sudo pacman -Syu
+  paru-update
+fi
+
 echo "installing flatpak"
 paru -S flatpak
 #isntalling other needed packages
@@ -37,7 +47,6 @@ sudo pacman -S ydotool
 sudo pacman -S python
 sudo pacman -S nmap
 sudo pacman -S direnv
-sudo pacman -S layout
 sudo pacman -S rsync
 sudo pacman -S mactelnet-client
 sudo pacman -S inetutils
@@ -59,7 +68,6 @@ sudo pacman -S ttf-nerd-fonts-symbols
 sudo pacman -S awesome-terminal-fonts otf-font-awesome ttf-font-awesome ttf-jetbrains-mono ttf-jetbrains-mono-nerd
 fc-cache -f -v
 
-sudo pacman -S code
 paru -S cursor-bin
 sudo pacman -S kate
 sudo pacman -S man
@@ -79,7 +87,6 @@ sudo pacman -S okular
 sudo pacman -S gimp
 sudo pacman -S firefox
 paru -S tor-browser-bin
-paru -S opera
 sudo pacman -S krita
 sudo pacman -S python-gobject gtk4
 
@@ -143,5 +150,3 @@ sudo pacman -S python-pywal
 sudo pacman -S python
 sudo pacman -S picom
 sudo pacman -S awww
-yay -S hyrpswitch
-yay -S cava

@@ -19,7 +19,6 @@ sudo pacman -S unzip
 echo "modifying configuration"
 ./link_config.sh
 
-
 #installs needed packages
 paru-update
 
@@ -37,8 +36,8 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 
 cat ~/.ssh/id_ed25519.pub
-print("add this to your github")
-print("GitHub → Settings → SSH and GPG keys")
+echo "add this to your github"
+echo "GitHub → Settings → SSH and GPG keys"
 
 echo "Enter your git username:"
 read username
@@ -64,7 +63,7 @@ rofi-set-fastfetch-image
 rofi-set-powermenu-style
 
 #installs oh-my-zsh
-echo "zsh" >> ~/.bashrc
+echo "zsh" >>~/.bashrc
 echo "installing oh-my-zsh"
 sudo pacman -S zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
