@@ -1,0 +1,8 @@
+#!/bin/bash
+
+paru naps2
+sudo pacman -S cups system-config-printer
+sudo systemctl enable --now cups.service
+
+paru -S epson-inkjet-printer-escpr
+paru -S epson-inkjet-printer-escpr2
