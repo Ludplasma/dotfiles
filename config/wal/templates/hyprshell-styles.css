@@ -1,12 +1,12 @@
 :root {{
   --border-color: {color4};
-  --border-color-active: {color5};
+  --border-color-active: {color13};
 
   --bg-color: {background};
   --bg-color-hover: {color8};
 
   --border-radius: 7px;
-  --border-size: 2px;
+  --border-size: 3px;
   --border-style: solid;
 
   --text-color: {foreground};

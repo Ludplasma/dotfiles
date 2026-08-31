@@ -1,7 +1,7 @@
 mkdir -p ~/Appps/
 cd ~/Appps/
 rm -r WinBox_Linux
-wget https://download.mikrotik.com/routeros/winbox/4.1/WinBox_Linux.zip
+wget https://download.mikrotik.com/routeros/winbox/4.3/WinBox_Linux.zip
 unzip WinBox_Linux.zip -d ~/Appps/WinBox_Linux/
 sudo chmod +x ~/Appps/WinBox_Linux/WinBox
 rm WinBox_Linux.zip
