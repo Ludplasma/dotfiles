@@ -10,7 +10,7 @@ return {
     providers = {
       openai = {
         endpoint = "https://openrouter.ai/api/v1",
-        model = "x-ai/grok-code-fast-1",
+        model = "x-ai/grok-4.3",
         api_key = os.getenv("OPENAI_API_KEY"),
         timeout = 30000,
         extra_request_body = {

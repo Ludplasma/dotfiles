@@ -10,6 +10,8 @@ else
   paru-update
 fi
 
+rustup component add rust-analyzer
+
 echo "installing flatpak"
 paru -S flatpak
 #isntalling other needed packages
