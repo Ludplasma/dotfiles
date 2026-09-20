@@ -1,0 +1,6 @@
+#!/bin/bash
+tar -xvf cbn-linux-tiles-x64-2026-09-11.tar.gz
+mkdir -p ~/Games/
+mv cataclysmbn-2026-09-11 ~/Games
+cd Games/cataclysmbn-2026-09-11
+./cataclysm-bn-tiles
