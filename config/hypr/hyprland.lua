@@ -14,6 +14,12 @@ hl.monitor({
 	position = "auto",
 	scale = 1,
 })
+hl.monitor({
+	output = "",
+	mode = "preferred",
+	position = "auto-left",
+	scale = 1,
+})
 
 --##################
 
@@ -102,7 +108,7 @@ hl.config({
 		shadow = {
 			enabled = true,
 			range = 12,
-			render_power = 10,
+			render_power = 4,
 			color = {
 				colors = {
 					colors.colors[5],
@@ -460,5 +466,5 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("batteryalert")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
 	hl.exec_cmd("wl-paste --watch cliphist store")
-	hl.exec_cmd("hyprshell-init")
+	hl.exec_cmd("hyprshell run")
 end)
